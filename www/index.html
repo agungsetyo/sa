@@ -1,0 +1,3344 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+
+	<link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+	<script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="libs/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
+
+	<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8">
+    // Call onDeviceReady when PhoneGap is loaded.
+    //
+    // At this point, the document has loaded but phonegap-1.0.0.js has not.
+    // When PhoneGap is loaded and talking with the native device,
+    // it will call the event `deviceready`.
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+        // Now safe to use the PhoneGap API
+		document.getElementById("app").style.display = "initial";
+    }
+    </script>
+
+	<title>SISTEM PENCATATAN DAN PENILAIAN PERSEDIAAN PADA PERUSAHAAN DAGANG</title>
+</head>
+<body>
+    <div id="app" style="display:initial;">
+		<!--<div id="dudu-pembuka" data-role="page" style="background-image:url('img/Icon%20Materi/DEPAN.png'); background-repeat:no-repeat;background-size:100% 100%">
+      		<script type="text/JavaScript">
+      			setTimeout("location.href = '#Welcome-page';",5000);
+      		</script>
+      	</div><!-- end Page--> 
+		
+		<!-- Welcome Page -->
+		<div id="Welcome-page" data-role="page" class="bg-welcome" style="text-align: center;"> 
+				<img src="img/uny.png"  style="width: 150px; display:block; margin: 20px auto;"/>
+				<h3>Selamat Datang</h3>
+				<h1>Map-Akuntansi</h1>
+				<h2>(Media Pembelajaran Akuntansi)</h2>
+				<h2>Sistem Pencatatan dan Penilaian Persediaan pada Perusahaan Dagang</h2>
+				<br/>
+				<a href="#home-page" data-theme="d"  data-role="button" data-inline="true">Masuk</a>
+		</div>
+				    
+        <!-- Home Page -->
+		<div id="home-page" data-role="page">
+			<img src="img/Icon%20Materi/Electrical-System.jpg" style="width:100%">
+            <div data-role="content" >
+				<div id="menu">
+					<ul data-role="listview">
+						<li class="btn-menu-utama">
+							<a href="#silabus-page"  >
+								<img src="img/Icon%20Materi/1%20Silabus%20(1).png" alt="">
+								<h2><b>KOMPETENSI</b></h2>
+							</a>
+						</li>
+						<li class="btn-menu-utama">
+							<a href="#Materi-page"  >
+								<img src="img/Icon%20Materi/3%20Materi.png" alt="">
+								<h2><b>MATERI</b></h2>
+							</a>
+						</li>
+						<li class="btn-menu-utama">
+							<a href="#evaluasi-page" onmousedown="resetSoal()">
+								<img src="img/Icon%20Materi/2%20kuis.png" alt="">
+								<h2><b>KUIS</b></h2>
+							</a>
+						</li>	
+						<li class="btn-menu-utama">
+							<a href="#eval2-page">
+								<img src="img/Icon%20Materi/2%20evaluasi.png" alt="">
+								<h2><b>EVALUASI</b></h2>
+							</a>
+						</li>	
+						<li class="btn-menu-utama">
+							<a href="#about-page"  >
+								<img src="img/Icon%20Materi/4%20profil.png"  alt="">
+								<h2><b>PROFIL</b></h2>
+							</a>
+						</li>
+						<li class="btn-menu-utama">
+							<a href="#help-page"  >
+								<img src="img/Icon%20Materi/5%20help.png" alt="">
+								<h2><b>BANTUAN</b></h2>
+							</a>
+						</li>
+						<li class="btn-menu-merah">
+							<a href="#exit-page">
+								<img src="img/Icon%20Materi/6%20exit.png" alt="">
+								<h2><b>EXIT</b></h2>
+							</a>
+						</li>
+					</ul>			
+                </div>
+            </div>
+        </div><!-- /page  -->
+		
+		<div  id="exit-page" data-role="page" style="background-image: url('img/Icon%20Materi/background%20soal.jpg'); background-size: 100% 100%;background-repeat: no-repeat;">
+			<div data-role="content" align="justify" style="font-size: 16px;">
+				<!-- Isi konten di sini -->
+				<center>
+					<div style="margin:auto;">
+						<div class="ui-corner-all custom-corner" style="width:100%">
+							<div data-role="header">
+								<h3>Konfirmasi</h3>
+							</div>
+							<div data-role="content" style="background-color: rgba(255,255,255,0.7);">
+								<p style="text-align: center;"><b>Kamu yakin akan keluar dari aplikasi ini?</b></p>
+								<a href="#home-page" data-role="button" class="ui-btn-inline" data-theme="b">tidak</a>
+								<a href="#" data-role="button" class="ui-btn-inline" onclick="navigator.app.exitApp()" data-theme="d">ya</a>
+							</div>
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
+
+            <div  id="Materi-page" data-role="page">
+                <div  data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+                    <h1>Materi</h1>
+                </div>
+				<img src="img/Icon%20Materi/Electrical-System.jpg" style="width:100%">
+                <div data-role="content" align="center">
+                    <!-- Isi konten di sini -->
+					<div id="menu" style=" font-size: 12px; vertical-align: center;">
+                        <ul data-role="listview">
+							<li class="btn-menu-utama">
+								<a onmousedown="$('[data-role=collapsible]').trigger('collapse');" href="#materi1"  >
+									<img src="img/Icon%20Materi/pengertian.png" alt="">
+									<h2><b>Materi 1</b></h2>
+									<p>Pengertian Persediaan</p>
+								</a>
+                            </li>	
+							<li class="btn-menu-utama">											
+								<a onmousedown="$('[data-role=collapsible]').trigger('collapse');" href="#materi2" >
+									<img src="img/Icon%20Materi/sistem.png" alt="">
+									<h2>Materi 2</h2>
+									<p>Sistem Pencatatan Persediaan</p>
+								</a>
+                            </li>	
+							<li class="btn-menu-utama">
+                                <a  onmousedown="$('[data-role=collapsible]').trigger('collapse');" href="#materi3"  >
+									<img src="img/Icon%20Materi/metode.png" alt="">
+									<h2>Materi 3</h2>
+									<p>Metode Penilaian Persediaan</p>
+								</a>
+                            </li>	
+							<li class="btn-menu-utama">
+                                <a  onmousedown="$('[data-role=collapsible]').trigger('collapse');" href="#materi4"   >
+									<img src="img/Icon%20Materi/penilaian.png" alt="">
+									<h2>Materi 4</h2>
+									<p>Penilaian Persediaan pada Sistem Periodik</p>
+								</a>
+                            </li>
+							<li class="btn-menu-utama">
+                                <a  onmousedown="$('[data-role=collapsible]').trigger('collapse');" href="#materi5"   >
+									<img src="img/Icon%20Materi/penilaian.png" alt="">
+									<h2>Materi 5</h2>
+									<p>Penilaian Persediaan pada Sistem Perseptual</p>
+								</a>
+                            </li>																	
+						</ul>                       
+                    </div>
+                </div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+                    <a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                </div>
+            </div>
+
+			<div  id="materi1" data-role="page">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+                    <h1 style="font-size: 24px;">Materi 1</h1>
+                </div>
+                <div data-role="content" align="justify" style="font-size: 16px;">
+                    <!-- Isi konten di sini -->
+					<h3>PENGERTIAN PERSEDIAAN</h3>
+					<p>Persediaan adalah aktiva berwujud yang dimiliki suatu perusahaan dengan tujuan:</p>
+					<ol>
+						<li>Dijual dalam kegiatan normal perusahaan:</li>
+						<ol style="list-style-type: lower-alpha;">
+							<li>Persediaan barang dagangan</li>
+							<li>Persediaan barang jadi</li>
+						</ol>
+						<li>Dalam proses produksi untuk dijadikan produk akhir yaitu barang dalam proses.</li>
+						<li>Digunakan dalam proses produksi untuk dijadikan produk akhir yaitu persediaan bahan baku.</li>
+					</ol>
+					Perusahaan dagang adalah perusahaan yang kegiatan usahanya meliputi membeli dan menjual kembali barang dagangan tanpa mengubah bentuknya. Jadi persediaan barang dagangan adalah aktiva berwujud yang dimiliki suatu perusahaan dengan tujuan untuk dijual kembali tanpa mengubah bentuk dari barang tersebut.	
+                </div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+                    <a href="#Materi-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                </div>
+            </div>
+
+			<div  id="materi2" data-role="page">
+				<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" > Home</a>
+                    <h1 style="font-size: 24px;">Materi 2</h1>
+                </div>
+                <div data-role="content" align="justify" style="font-size: 16px;">
+                    <!-- Isi konten di sini -->
+					<h3>SISTEM PENCATATATAN PERSEDIAAN</h3>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b" id="xx">
+						<h3><b>a. Sistem Periodik</b></h3>
+						<p>Sistem periodik yaitu pada setiap akhir periode dilakukan perhitungan secara phisik untuk menentukan jumlah persediaan akhir. Perhitungan tersebut meliputi pengukuran dan penimbangan barang-barang yang ada pada akhir suatu periode untuk kemudian dikalikan dengan suatu tingkat harga/biaya.</p>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>b. Sistem Perpetual</b></h3>
+						<p>Sistem perpetual  yaitu melakukan pembukuan atas persediaan secara terus menerus yaitu dengan membukukan setiap transaksi persediaan baik pembelian maupun penjualan.</p>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>c. Perbedaan Sistem Periodik dan Sistem Perpetual</b></h3>
+						<table border="1">
+							<tr>
+								<td>No.</td>
+								<td>Sistem Periodik</td>
+								<td>Sistem Perpetual</td>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td>Pembelian barang dagangan dicatat dengan mendebit rekening pembelian.</td>
+								<td>Pembelian barang dagangan dicatat dalam akun persediaan barang dagangan.</td>
+							</tr>
+							<tr>
+								<td>2.</td>
+								<td>Hasil penjualan dicatat dalam rekening penjualan dan pada waktu penjualan harga pokok penjualan tidak dicatat dijurnal.</td>
+								<td>Hasil penjualan dicatat dalam rekening penjualan dan pada waktu penjualan harga pokok penjualan dicatat/dijurnal.</td>
+							</tr>
+							<tr>
+								<td>3.</td>
+								<td>Nilai persediaan pada akhir  periode tidak dapat diketahui sehingga perlu melakukan perhitungan fisk persedian: dibuat penyesuaian pada akhir periode</td>
+								<td>Walaupun nilai persediaan akhir dapat diketahui, penghitungan fisik tetap harus dilakukan untuk mencocokkan persediaan akhir menurut penghitungan fisik dengan catatannya.</td>
+							</tr>
+						</table>
+						<p>Perbedaan antara sistem pencatatan periodik dan sistem pencatatan perpetual dapat dilihat secara jelas dalam penjurnalan transaksi yang berkaitan dengan penjualan dan pembelian barang dagangan. Berikut ini perbedaan jurnal kedua metode tersebut:</p>
+						<!-- 1 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Pembelian Barang Dagangan Secara Tunai</b></h3>
+							<img src="img/tabelmateri2.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							PT. Abadi membeli barang dagangan secara tunai sebesar Rp1.200.000,00
+							</p>
+							<img src="img/tabelmateri3.png" style="width:100%"/>
+						</div>
+						<!-- 2 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Pembelian Barang Dagangan Secara Kredit</b></h3>
+							<img src="img/tabelmateri4.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							PT. Abadi membeli barang dagangan secara kredit sebesar Rp2.250.000,00, dengan termin 2/10, n/30.
+							</p>
+							<img src="img/tabelmateri5.png" style="width:100%"/>
+						</div>
+						<!-- 3 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Retur Pembelian Barang Dagangan secara Tunai</b></h3>
+							<img src="img/tabelmateri6.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							PT. Abadi mengembalikan barang yang tidak sesuai dengan pesanan atas pembelian tunai sebesar Rp150.000,00.
+							</p>
+							<img src="img/tabelmateri7.png" style="width:100%"/>
+						</div>
+						<!-- 4 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Retur Pembelian Barang Dagangan secara Kredit</b></h3>
+							<img src="img/tabelmateri8.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							PT. Abadi mengembalikan barang yang cacat atas pembelian kredit sebesar Rp100.000,00.
+							</p>
+							<img src="img/tabelmateri9.png" style="width:100%"/>
+						</div>
+						<!-- 5 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Pembayaran Biaya Angkut Pembelian</b></h3>
+							<img src="img/tabelmateri10.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Dibayar biaya angkut pembelian seberar Rp350.000,00.
+							</p>
+							<img src="img/tabelmateri11.png" style="width:100%"/>
+						</div>
+						<!-- 6 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Pembayaran Utang tanpa potongan</b></h3>
+							<img src="img/tabelmateri12.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Dibayar utang dagang sebesar Rp700.000,00
+							</p>
+							<img src="img/tabelmateri13.png" style="width:100%"/>
+						</div>
+						<!-- 7 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Pembayaran Utang dengan potongan</b></h3>
+							<img src="img/tabelmateri14.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Dibayar utang dagang sebesar Rp1.200.000,00 dengan potongan 2%.<br/>
+							<b>Perhitungan:</b>
+							<table>
+								<tr>
+									<td>Utang Dagang</td>
+									<td>Rp1.200.000,00</td>
+								</tr>
+								<tr>
+									<td>Potongan Pembelian</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>(2% x Rp1.200.000,00 = Rp24.000)</td>
+									<td>RP     24.000,00<hr/></td>
+								</tr>
+								<tr>
+									<td>Kas yang dibayarkan</td>
+									<td>Rp1.176.000,00</td>
+								</tr>
+							</table>
+							</p>
+							<img src="img/tabelmateri15.png" style="width:100%"/>
+						</div>
+						<!-- 8 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Penjualan Barang Dagangan secara Tunai</b></h3>
+							<img src="img/tabelmateri16.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							PT. Abadi menjual barang dagangan seharga Rp600.000,00 dengan Harga Pokok Penjualan Rp375.000,00
+							</p>
+							<img src="img/tabelmateri17.png" style="width:100%"/>
+						</div>
+						<!-- 9 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Penjualan Barang Dagangan secara Kredit</b></h3>
+							<img src="img/tabelmateri18.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Dijual barang dagangan secara kredit sebesar Rp1.500.000,00, dengan termin 2/10, n/30. Harga Pokok Penjualan Rp1.115.000,00
+							</p>
+							<img src="img/tabelmateri19.png" style="width:100%"/>
+						</div>
+						<!-- 10 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Retur Penjualan Barang Dagangan secara Tunai</b></h3>
+							<img src="img/tabelmateri20.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Diterima kembeli barang dagangan yang dijual secara tunai sebesar Rp250.000,00 dengan harga pokok penjualan sebesar Rp210.000,00 
+							</p>
+							<img src="img/tabelmateri21.png" style="width:100%"/>
+						</div>
+						<!-- 11 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Retur Penjualan Barang Dagangan secara Kredit</b></h3>
+							<img src="img/tabelmateri22.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Diterima kembeli barang dagangan yang dijual secara kredit sebesar Rp125.000,00 dengan harga pokok penjualan sebesar Rp95.000,00 
+							</p>
+							<img src="img/tabelmateri23.png" style="width:100%"/>
+						</div>
+						<!-- 12 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Pembayaran Biaya Angkut Penjualan</b></h3>
+							<img src="img/tabelmateri24.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Dibayar biaya angkut penjualan seberar Rp200.000,00.
+							</p>
+							<img src="img/tabelmateri25.png" style="width:100%"/>
+						</div>
+						<!-- 13 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Penerimaan piutang dagang tanpa potongan</b></h3>
+							<img src="img/tabelmateri26.png" style="width:100%"/>
+							<p>Contoh:<br/>
+							Diterima pelunasan piutang dagang sebesar Rp 600.000,00
+							</p>
+							<img src="img/tabelmateri27.png" style="width:100%"/>
+						</div>
+						<!-- 14 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Penerimaan piutang dagang pada periode potongan</b></h3>
+							<img src="img/tabelmateri28.png" style="width:100%"/>
+							<p>Contoh:<br/>	
+							Diterima pelunasan piutang dagang sebesar Rp 2.200.000,00 dengan potongan 2%.<br/>
+							<b>Perhitungan:</b>
+							<table>
+								<tr>
+									<td>Piutang Dagang</td>
+									<td>Rp2.200.000,00</td>
+								</tr>
+								<tr>
+									<td>Potongan Penjualan</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>(2% x Rp2.200.000,00 = Rp44.000)</td>
+									<td>RP     44.000,00<hr/></td>
+								</tr>
+								<tr>
+									<td>Kas yang diterima</td>
+									<td>Rp2.156.000,00</td>
+								</tr>
+							</table>	
+							</p>
+							<img src="img/tabelmateri29.png" style="width:100%"/>
+						</div>
+						<!-- 15 -->
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>Jurnal penyesuaian akhir periode</b></h3>
+							<img src="img/tabelmateri30.png" style="width:100%"/>
+							<p>Contoh:<br/>		
+							Diketahui data terkait persediaan pada akhir periode yaitu:
+							<table>
+								<tr>
+									<td>Persediaan awal</td>
+									<td>Rp  1.200.000,00</td>
+								</tr>
+								<tr>
+									<td>Pembelian</td>
+									<td>Rp13.750.000,00</td>
+								</tr>
+								<tr>
+									<td>Retur pembelian</td>
+									<td>Rp     230.000,00</td>
+								</tr>
+								<tr>
+									<td>Potongan pembelian</td>
+									<td>Rp     550.000,00</td>
+								</tr>
+								<tr>
+									<td>Biaya angkut pembelian</td>
+									<td>Rp     700.000,00</td>
+								</tr>
+								<tr>
+									<td>Persediaan akhir</td>
+									<td>Rp  1.455.000,00</td>
+								</tr>
+							</table>
+							<b>Perhitungan</b>
+							<table>
+								<tr>
+									<td>Persediaan wal</td>
+									<td class="txt-indent uang">Rp1.200.000,00</td>
+								</tr>
+								<tr>
+									<td>Pembelian</td>
+									<td class="txt-right-indent uang">Rp13.750.000,00</td>
+								</tr>
+								<tr>
+									<td>Biaya angkut pembelian</td>
+									<td class="txt-right-indent uang">Rp     700.000,00</td>
+								</tr>
+								<tr>
+									<td>Retur pembelian</td>
+									<td class="txt-right-indent uang">(Rp     230.000,00)</td>
+								</tr>
+								<tr>
+									<td>Potongan pembelian</td>
+									<td class="txt-right-indent uang">(Rp     550.000,00)</td>
+								</tr>
+								<tr>
+									<td>Barang yang tersedia untuk dijual</td>
+									<td class="txt-indent uang">Rp13.670.000,00</td>
+								</tr>
+								<tr>
+									<td>Persediaan akhir</td>
+									<td class="txt-indent uang">Rp1.455.000,00</td>
+								</tr>
+								<tr>
+									<td>Harga pokok pembelian</td>
+									<td class="txt-indent uang">Rp12.215.000,00</td>
+								</tr>
+							</table>
+							</p>
+							<img src="img/tabelmateri31.png" style="width:100%"/>
+						</div>
+					</div>
+				</div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+					<a href="#Materi-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+				</div>
+            </div>
+			
+			<div  id="materi3" data-role="page">
+                <div  data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+                    <h1 style="font-size: 24px;">Materi 3</h1>
+                </div>
+                <div data-role="content" align="justify" style="font-size: 16px;">
+                    <!-- Isi konten di sini -->
+    				<h3>METODE PENILAIAN PERSEDIAAN</h3>
+					<p>Penilaian persediaan dilakukan untuk memperoleh informasi terkait dengan persediaan antara lain persediaan yang masih ada di perusahaan, persediaan yang dibeli dan persediaan yang dijual oleh perusahaan serta alokasi biaya – biaya yang mempengaruhi nilai persediaan. Penilaian persediaan dilakukan dengan memperhatikan sistem pencatatan persediaan dan metode penilaian persediaan yang digunakan oleh perusahaan. Berikut ini metode yang digunakan dalam penilaian persediaan:</p>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>Sistem Periodik</b></h3>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>1. FIFO</b></h3>
+							<p>FIFO (<i>First In First Out</i>) atau sering disebut juga dengan MPKP (Masuk Pertama Keluar Pertama) menganggap barang yang masuk pertama akan dijuat terlebih dahulu.</p>
+						</div>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>2. LIFO</b></h3>
+							<p>LIFO (<i>Last In First Out</i>) atau sering disebut juga dengan MTKP (Masuk Terakhir Keluar Pertama) menganggap barang yang masuk terakhir akan dijuat terlebih dahulu.</p>
+							<div class="ui-body ui-body-a ui-corner-all" style="background-color: white; border-color: red;">
+								<h3><span class="ui-btn ui-icon-alert ui-btn-icon-left"></span>Info Tambahan:</h3>
+								<p>Dalam IFRS penggunaan metode lifo tidak diijinkan. Hal tersebut dikarenakan 
+								<ol style="list-style-type: lower-alpha;">
+									<li>Penggunaan metode LIFO tidak mempresentasikan keadaan yang sebenarnya.</li>
+									<li>Signifikansi perbedaan laba, LIFO menghasilkan laba yang cukup berbeda jauh dibanding FIFO dan Rata – rata.</li>
+								</ol>
+								</p>
+							</div>
+						</div>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>3. Rata-Rata Sederhana</b></h3>
+							<p>Dalam metode rata – rata sederhana nilai per unit persediaan dihitung dengan cara jumlah harga per unit dibagi dengan frekuensi pembelian.<br/>
+							Rumus yang digunakan yaitu:</p>
+							<img src="img/tba1.png" style="width: 100%; max-width: 600px;"/>
+						</div>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>4. Rata-Rata Tertimbang</b></h3>
+							<p>Dalam metode rata – rata tertimbang nilai per unit persediaan dihitung dengan cara harga total pembelian dibagi dengan total unit yang dibeli.<br/>
+							Rumus yang digunakan yaitu:</p>
+							<img src="img/tba2.PNG" style="width: 100%; max-width: 600px;"/>
+						</div>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>5. Identifikasi Khusus</b></h3>
+							<p>Metode harga pokok yang didasarkan atas metode identifikasi khusus adalah suatu metode penilaian harga yang didasarkan atas nilai perolehan dari barang yang sesungguhnya. Penggunaan metode ini biasanya dipakai untuk barang yang tidak banyak unitnya (kuantitasnya).</p>
+						</div>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>Sistem Perpetual</b></h3>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>1. FIFO</b></h3>
+							<p>FIFO (<i>First In First Out</i>) atau sering disebut juga dengan MPKP (Masuk Pertama Keluar Pertama) menganggap barang yang masuk pertama akan dijuat terlebih dahulu.</p>
+						</div>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>2. LIFO</b></h3>
+							<p>LIFO (<i>Last In First Out</i>) atau sering disebut juga dengan MTKP (Masuk Terakhir Keluar Pertama) menganggap barang yang masuk terakhir akan dijuat terlebih dahulu.</p>
+							<div class="ui-body ui-body-a ui-corner-all" style="background-color: white; border-color: red;">
+								<h3><span class="ui-btn ui-icon-alert ui-btn-icon-left"></span>Info Tambahan:</h3>
+								<p>Dalam IFRS penggunaan metode lifo tidak diijinkan. Hal tersebut dikarenakan 
+								<ol style="list-style-type: lower-alpha;">
+									<li>Penggunaan metode LIFO tidak mempresentasikan keadaan yang sebenarnya.</li>
+									<li>Signifikansi perbedaan laba, LIFO menghasilkan laba yang cukup berbeda jauh dibanding FIFO dan Rata – rata.</li>
+								</ol>
+								</p>
+							</div>
+						</div>
+						<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="a">
+							<h3><b>3. Rata-Rata Bergerak</b></h3>
+							<p>Metode rata-rata ini beranggapan bahwa setiap terjadinya perubahan persediaan baik karena pembelian maupun penjualan yang dilakukan oleh perusahaan, sisa persediaan yang masih ada segera diambil rata – ratanya.</p>
+						</div>
+					</div>
+				</div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+                    <a href="#Materi-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                </div>
+            </div>
+						
+			<div  id="materi4" data-role="page">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+                    <h1 style="font-size: 24px;">Materi 4</h1>
+                </div>
+                <div data-role="content" align="justify" style="font-size: 16px;">
+                    <!-- Isi konten di sini -->
+					<h3>PENILAIAN PERSEDIAAN PADA SISTEM PERIODIK</h3>
+					<p>Penilaian persediaan dalam sistem periodik dilakukan pada akhir periode. Perhatikan contoh soal berikut ini untuk memahami penilaian persediaan pada sistem periodik.</p>
+					<p>Berikut ini adalah data yang terkait dengan persediaan, pembelian dan penjualan pada PT. Jaya Abadi pada bulan Desember 2015:</p>
+					<!-- gambar tabel -->
+					<img src="img/tb1.png" style="width: 100%; max-width: 600px;"/>
+					<p>Informasi Tambahan (untuk metode idenfifikasi khusus):</p>
+					<p>Berdasarkan perhitungan fisik persediaan akhir terdiri dari 300 unit pembelian tanggal 30 Desember, 100 unit pembelian tanggal 20 Desember dan 100 pembelian tanggal 10 Desember.</p>
+					<p>Hitunglah nilai persediaan akhir dan harga pokok penjualan dengan asumsi menggunakan sistem pencatatan periodik dengan metode:
+						<ol>
+							<li>FIFO</li>
+							<li>LIFO</li>
+							<li>Rata-Rata Sederhana</li>
+							<li>Rata-Rata Tertimbang</li>
+							<li>Identifikasi Khusus</li>
+						</ol>
+					</p>
+					<p>Jawab:</p>
+					<p>Sebelum melakukan perhitungan penilaian persediaan dalam berbagai metode, untuk mempermudah pengerjaan diperlukan mengklasisikasikan data penjualan dan pembelian.</p>
+					Penjualan:<br/>
+					<img src="img/tb2.png" style="width: 100%; max-width: 600px;"/><br/>
+					Barang tersedia untuk dijual:<br/>
+					<img src="img/tb3.png" style="width: 100%; max-width: 600px;"/><br/>
+					<img src="img/tb3a.png" style="width: 100%; max-width: 600px;"/><br/>
+					<!-- gambar tabel -->
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>1. FIFO</b></h3>
+						Nilai persediaan akhir sebanyak 500 unit terdiri dari:<br/>
+						<img src="img/tb4.png" style="width: 100%; max-width: 600px;"/><br/>
+						Harga pokok penjualan<br/>
+						<img src="img/tb5.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>2. LIFO</b></h3>
+						Nilai persediaan akhir sebanyak 500 unit terdiri dari:<br/>
+						<img src="img/tb6.png" style="width: 100%; max-width: 600px;"/><br/>
+						Harga pokok penjualan<br/>
+						<img src="img/tb7.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>3. Rata-Rata Sederhana</b></h3><br/>
+						<img src="img/tb8-.PNG" style="width: 100%; max-width: 600px;"/><br/>
+						<img src="img/tb8.png" style="width: 100%; max-width: 600px;"/><br/>
+						<img src="img/tb9.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>4. Rata-Rata Tertimbang</b></h3>
+						<img src="img/tb10.png" style="width: 100%; max-width: 600px;"/><br/>
+						<img src="img/tb11.png" style="width: 100%; max-width: 600px;"/><br/>
+						<img src="img/tb12.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>5. Identifikasi  Khusus</b></h3>
+						Nilai persediaan akhir sebanyak 500 unit terdiri dari:<br/>
+						<img src="img/tb13.png" style="width: 100%; max-width: 600px;"/><br/>
+						Harga pokok penjualan<br/>
+						<img src="img/tb14.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+				</div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+                    <a href="#Materi-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                </div>
+			</div>
+						
+			<div id="materi5" data-role="page">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+                    <h1 style="font-size: 24px;">Materi 5</h1>
+                </div>
+                <div data-role="content" align="justify" style="font-size: 16px;">
+                    <!-- Isi konten di sini -->
+					<h3>PENILAIAN PERSEDIAAN PADA SISTEM PERPETUAL</h3>
+					<p>Penilaian persediaan dalam sistem perpetual dilakukan setiap terjadinya transaksi yang mengakibatkan perubahan pada akun persediaan. Pada sistem ini diperlukannya kartu persediaan. Kartu persediaan tersebut digunakan untuk mencatat setiap perubahan akun persediaan. Perhatikan contoh soal berikut ini untuk memahami penilaian persediaan pada sistem perpetual.</p>
+					<p>Berikut ini adalah data yang terkait dengan persediaan, pembelian dan penjualan pada PT. Jaya Abadi pada bulan Desember 2015:</p>
+					<!-- gambar tabel -->
+					<img src="img/tb15.png" style="width: 100%; max-width: 600px;"/><br/>
+					<p>Hitunglah nilai persediaan akhir dan harga pokok penjualan dengan asumsi menggunakan sistem pencatatan periodik dengan metode:
+						<ol>
+							<li>FIFO</li>
+							<li>LIFO</li>
+							<li>Rata-Rata Bergerak</li>
+						</ol>
+					</p>
+					<p>Jawab:</p>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>1. FIFO</b></h3>
+						Ket: nominal dalam Rupiah<br/>
+						<img src="img/tb16.png" style="width: 100%; max-width: 600px;"/><br/>
+						Jadi nilai persediaan 500 unit yaitu Rp2.450.000,00<br/>
+						<img src="img/tb17.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>2. LIFO</b></h3>
+						Ket: nominal dalam Rupiah<br/>
+						<img src="img/tb18.png" style="width: 100%; max-width: 600px;"/><br/>
+						Jadi nilai persediaan 500 unit yaitu Rp2.450.000,00<br/>
+						<img src="img/tb19.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+					<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+						<h3><b>3. Rata-Rata Bergerak</b></h3>
+						Ket: nominal dalam Rupiah<br/>
+						<img src="img/tb20.png" style="width: 100%; max-width: 600px;"/><br/>
+						Jadi nilai persediaan 500 unit yaitu Rp2.450.000,00<br/>
+						<img src="img/tb21.png" style="width: 100%; max-width: 600px;"/><br/>
+					</div>
+                </div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+                    <a href="#Materi-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                </div>
+            </div>
+						
+						
+			<div  id="silabus-page" data-role="page" style="background-image:url('img/bg/bg-silabus.jpg'); background-repeat:repeat-y;background-size:100% 100%">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+                    <h2>KOMPETENSI</h2>
+                </div>
+                <div data-role="content" align="justify" style="font-size: 16px;">
+                    <!-- Isi konten di sini -->
+					<strong>Kompetensi Inti</strong><br/>
+					<ol class="list-ki">
+						<li>Menghayati dan mengamalkan ajaran agama yang dianutnya.</li>
+						<li>Menghayati dan mengamalkan perilaku jujur, disiplin, tanggungjawab, peduli (gotong royong, kerjasama, toleran, damai), santun, responsif dan pro-aktifdan menunjukan sikap sebagai bagian dari solusi atas berbagai permasalahan dalam berinteraksi secara efektif dengan lingkungan sosial dan alam serta dalam menempatkan diri sebagai cerminan bangsa dalam pergaulan dunia.</li>
+						<li>Memahami dan menerapkan pengetahuan faktual, konseptual, prosedural, dan metakognitif berdasarkan rasa ingin tahunya tentang ilmu pengetahuan, teknologi, seni, budaya, dan humaniora dalam wawasan kemanusiaan,  kebangsaan, kenegaraan, dan peradaban terkait penyebab fenomena dan kejadian dalam bidangkerja yang spesifik untuk memecahkan masalah.</li>
+						<li>Mengolah, menyaji, dan menalar dalam ranah konkret dan ranah abstrak terkait dengan pengembangan dari yang dipelajarinya di sekolah secara mandiri, bertindak secara efektif dan kreatif, dan mampu melaksanakan tugas spesifik di bawah pengawasan langsung.</li>
+					</ol>
+					<br/>
+					<strong>Kompetensi Dasar</strong>
+					<ol class="list-kd1">
+						<li>Mensyukuri  karunia Tuhan Yang Maha Esa, atas pemberian amanah untuk mengelola administrasi keuangan entitas.</li>
+						<li>Mengamalkan ajaran agama dalam memanfaatkan ilmu pengetahuan dan teknologi untuk menghasilkan informasi keuangan yang mudah dipahami, relevan, andal, dan dapat diperbandingkan.</li>
+					</ol>
+					<ol class="list-kd2">
+						<li>Memiliki motivasi internal dan menunjukkan rasa ingin tahu dalam menemukan dan memahami pengetahuan dasar tentang keuangan dan akuntansi.</li>
+						<li>Menunjukkan perilaku jujur, disiplin, tanggungjawab, santun, responsif dan pro-aktif dalam berinteraksi secara efektif dalam lingkungan sosial sesuai dengan prinsip etika profesi bidang keuangan dan akuntansi.</li>
+						<li>Menghargai kerja individu dan kelompok serta mempunyai kepedulian yang tinggi dalam menjaga keselarasan lingkungan sosial, lingkungan kerja dan alam.</li>
+					</ol>
+					<ol class="list-kd3">
+						<li>Menjelaskan pengertian dan sitem pencatatan persediaan.</li>
+						<li>Menjelaskan metode-metode yang digunakan dalam menentukan nilai persediaan.</li>
+						<li>Menjelaskan perhitungan nilai persediaan sistem pencatatan periodik untuk berbagai metode penilaian persediaan.</li>
+						<li>Menjelaskan perhitungan nilai persediaan sistem pencatatan perpetual untuk berbagai metode penentuan harga pokok.</li>
+					</ol>
+					<ol class="list-kd4">
+						<li>Mengidentifikasi pengertian persediaan dan sistem pencatatannya</li>
+						<li>Mengidentifikasi penggunaan metode dalam menentukan nilai persediaan</li>
+						<li>Menghitung nilai persediaan sistem pencatatan periodik untuk berbagai metode penentuan harga pokok.</li>
+						<li>Menghitung nilai persediaan sistem pencatatan perpetual untuk berbagai metode penentuan harga pokok.</li>
+				</div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+                    <a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                </div>
+            </div>	
+						
+						
+			<div  id="help-page" data-role="page" style="background-image:url('img/bg/bg-petunjuk.jpg'); background-repeat:no-repeat;background-size:100% 100%">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+                    <h1 style="font-size: 24px;">BANTUAN</h1>							
+                </div>
+                <div data-role="content" align="center" style="font-size: 16px;">
+                    <!-- Isi konten di sini -->
+					<p>Menu bantuan ini adalah menu yang berisikan informasi untuk mengetahui fungsi tiap tombol pada media pembelajaran ini.</p>
+					<p>Berikut adalah penjelasannya:</p>
+										
+					<img src="img/help/home.PNG" width="74" height="49">
+					<p>Tombol ini terletak di pojok kiri atas, berfungsi sebagai tombol untuk kembali ke menu utama.</p>
+					<img src="img/help/back.PNG" width="66" height="32">
+					<p>tombol ini terletak di bagaian pojok kiri bawah, berfungsi untuk kembali ke menu sebelumnya.</p>
+					<img src="img/help/materi1.PNG" style="width:100%">
+					<p>Tombol ini merupakan tombol materi 1 untuk menuju ke materi pertama yang berisikan pengertian persediaan.</p>
+					<img src="img/help/materi2.PNG" style="width:100%">
+					<p>Tombol ini merupakan tombol materi 2 untuk menuju ke isi materi dua yang berisikan sistem pencatatan persediaan </p>
+					<img src="img/help/materi3.PNG" style="width:100%">
+					<p>Tombol ini merupakan tombol materi 3 untuk menuju ke isi materi tiga yang berisikan metode penilaian persediaan</p>
+					<img src="img/help/materi4.PNG" style="width:100%">
+					<p>Tombol ini merupakan tombol materi 4 untuk menuju ke isi materi empat yang berisikan penilaian persediaan pada sistem periodik</p>
+					<img src="img/help/materi5.PNG" style="width:100%">
+					<p>Tombol ini merupakan tombol materi 5 untuk menuju ke isi materi lima yang berisikan penilaian persediaan pada sistem perpetual</p>
+					<img src="img/help/expand.png" style="width:100%">
+					<p>Tombol ini merupakan tombol untuk melihat materi yang lebih detil</p>
+					
+				</div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+                    <a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                </div>
+            </div>			
+									
+			<div  id="evaluasi-page" data-role="page" style="background-image: url('img/Icon%20Materi/background%20soal.jpg');background-size: 100% 100%;background-repeat: no-repeat;">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" id="homeQuiz">Home</a>
+                    <h1 style="font-size: 24px;">KUIS</h1>
+                </div>
+                <div data-role="content" align="justify" style="font-size: 16px;">
+					<!-- Isi konten di sini -->
+					<div id="divMulai" style="display:initial">
+						<div style="background-color: rgba(255,255,255,0.7);padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;">
+							<p><b>Pada Halaman Kuis terdapat berbagai kumpulan soal pilihan ganda yang tiap sesi akan ditampilkan 20 soal. Nilai jawaban benar 5 poin dengan total 100 poin. Tidak terdapat tombol kembali pada tiap soal. Diharapkan untuk menjawab dengan hati - hati dan benar. Silahkan Klik <i>Mulai</i> untuk mengerjakan soal.</b></p>
+						</div><br/>
+						<a href="#" data-theme="a"  data-role="button" onmousedown="mulaiSoal()">Mulai</a>
+					</div>
+					<div id="divSoal" style="display:none">
+						<div style="background-color: rgba(255,255,255,0.7);padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;">
+							<p id="textSoal" ></p>
+						</div>
+						<a href="#" data-role="button" onclick="cekJawaban('a')" style="text-align: left;" id="opsiA">dfg</a>
+						<a href="#" data-role="button" onclick="cekJawaban('b')" style="text-align: left;" id="opsiB">hrtrh</a>
+						<a href="#" data-role="button" onclick="cekJawaban('c')" style="text-align: left;" id="opsiC">rhtr</a>
+						<a href="#" data-role="button" onclick="cekJawaban('d')" style="text-align: left;" id="opsiD">tht</a>
+						<a href="#" data-role="button" onclick="cekJawaban('e')" style="text-align: left;" id="opsiE">rh</a>
+					</div>	
+					<center>
+						<div id="divSekor" style="margin:auto;" display:none;>
+							<div class="ui-corner-all custom-corner" style="width:200px">
+								<div data-role="header">
+									<h3>NILAI</h3>
+								</div>
+								<div data-role="content" style="background-color: rgba(255,255,255,0.7);">
+									<p id="sekor" style="text-align: center;font-size: 50px;">xxxxxxxxxxx</p>
+									<br/>
+									<b>KKM = 75</b>
+								</div>
+							</div>
+							<br/>
+							<div class="ui-corner-all custom-corner" style="width:100%" onclick="resetSoal()">
+								<div id="lulus-kkm" data-role="content" style="background-color: rgba(45,204,112,0.7);">
+									<p style="font-size: 16px; color: white;"><b>Good job!!! Pertahankan prestasimu. Coba kuis lainnya?</b></p>
+								</div>
+								<div id="gagal-kkm" data-role="content" style="background-color: rgba(255,44,44,0.7);">
+									<p style="font-size: 16px; color: white;"><b>Waah, jangan sedih ya. Ayo tingkatkan belajarmu. Ulangi kuisnya lagi ya. Tetap semangat!!!</b></p>
+								</div>
+							</div>
+							<br/>
+							<a data-role="button" href="#home-page" style="text-align: center;">Kembali ke Halaman Utama</a>
+							</div>
+					</center>
+				</div>
+				<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+					<a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" id="backQuiz">Back</a>
+				</div>
+			</div>	
+						
+        <div  id="about-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+				<h1>About App</h1>
+			</div>
+			<div data-role="content" align="center" style="font-size: 16px;">
+				<!-- Isi konten di sini --> 
+				<img src="img/icon.png" width="160">
+				<p>Smart Accquiz adalah media pembelajaran yang dikembangkan <p>
+				
+				<p>Kami mengucapkan terimakasih kepada semua pihak yang telah membantu dan mendukung pengembangan media pembelajaran ini. Semoga media ini bermanfaat bagi
+				pendidikan di sekolah baik bagi siswa, guru, lembaga pendidikan maupun untuk tujuan pengembangan.</p>
+				<p>Kami menyadari bahwa media ini masih jauh dari kesempurnaan sehingga kami membutuhkan kritik dan masukannya untuk pengembangan media selanjutnya. </p>
+			
+				<p><b>Pengembang</b></p>
+				<p><b>Leni Yulianti</b></p>
+				<p>Mahasiswa Pendidikan Akuntansi</p>
+				<p>Fakultas Ekonomi</p>
+				<p>Universitas Negeri Yogyakarta</p>
+				<hr/>
+				<p><b>Dosen Pembimbing</b></p>
+				<p><b>Diana Rahmawati, M.Si.</b></p>
+				<p>Dosen Pendidikan Akuntansi</p>
+				<p>Fakultas Ekonomi</p>
+				<p>Universitas Negeri Yogyakarta</p>
+				<hr/>
+				<p><b>Dosen Ahli Materi</b></p>
+				<p><b>RR Indah Mustikawati, M.Si., Ak., CA</b></p>
+				<p>Dosen Pendidikan Akuntansi</p>
+				<p>Fakultas Ekonomi</p>
+				<p>Universitas Negeri Yogyakarta</p>
+				<hr/>
+				<p><b>Dosen Ahli Media</b></p>
+				<p><b>Ponco Wali Pranoto M.Pd</b></p>
+				<p>Dosen Pendidikan Teknik Elektronika</p>
+				<p>Fakultas Teknik</p>
+				<p>Universitas Negeri Yogyakarta</p>
+				<hr/>
+				<p><b>Praktisi Pembelajaran Akuntansi</b></p>
+				<p><b>Cicilia Nugrahanti S.Pd</b></p>
+				<p>Guru Akuntansi</p>
+				<p>SMK Negeri 2 Magelang</p>		
+			</div>
+			<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+				<a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+			</div>
+        </div>
+		<div  id="eval2-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+					<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+				<h1>EVALUASI</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<!-- Isi konten di sini --> 
+				<p>PT Adhi Tech merupakan perusahaan dagang yang memperdagangkan TV yang beralamat di JL Fatmawati no 20, Jakarta 12410 Telp: 012-7502457. Seluruh pembelian yang dilakukan oleh perusahaan dengan cara kredit. Penjualan yang dilakukan secara kredit perusahaan mengeluarkan kas untuk membayar biaya angkut sebesar 1% dari harga jual.</p>
+				<p>Barang Dagangan</p>
+				<img src="img/barang-dagangan.png" style="width: 100%; max-width: 600px;"/>
+
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+					<h3><b>Sistem Periodik</b></h3>
+					<a href="#periodik-fifo-page" data-theme="a"  data-role="button" onmousedown="mulaiSoalPeriodikFIFO()">FIFO (<i>First In First Out</i>)</a>
+					<a href="#periodik-lifo-page" data-theme="a"  data-role="button" onmousedown="mulaiSoalPeriodikLIFO()">LIFO (<i>Last In First Out</i>)</a>
+					<a href="#periodik-sederhana-page" data-theme="a"  data-role="button" onmousedown="mulaiSoalPeriodikSederhana()">Rata-Rata Sederhana</a>
+					<a href="#periodik-tertimbang-page" data-theme="a"  data-role="button" onmousedown="mulaiSoalPeriodikTertimbang()">Rata-Rata Tertimbang</a>
+				</div>
+				<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right" data-theme="b">
+					<h3><b>Sistem Perpetual</b></h3>
+					<a href="#perpetual-fifo-page" data-theme="a"  data-role="button" onmousedown="mulaiSoalPerpetualFIFO()">FIFO (<i>First In First Out</i>)</a>
+					<a href="#perpetual-lifo-page" data-theme="a"  data-role="button" onmousedown="mulaiSoalPerpetualLIFO()">LIFO (<i>Last In First Out</i>)</a>
+					<a href="#perpetual-bergerak-page" data-theme="a"  data-role="button" onmousedown="mulaiSoalPerpetualBergerak()">Rata-Rata Bergerak</a>
+				</div>
+			</div>
+			<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+				<a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+			</div>
+		</div>
+		
+		<div  id="periodik-fifo-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<h1>Periodik FIFO</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<!-- Isi konten di sini -->
+				<center><b id="periodik-fifo-soal">Tanggal 3 Januari</b></center>
+				<p>Isikan nominal uang dengan 2 (dua) angka di belakang koma.</p>
+				
+				<select id="select-priodik-fifo-0">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-fifo-0"></input>
+						
+				<select id="select-priodik-fifo-1">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-fifo-1"></input>
+				
+				<select id="select-priodik-fifo-2">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-fifo-2"></input>
+				
+				<select id="select-priodik-fifo-3">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-fifo-3"></input>
+					
+				
+				<button id="periodik-fifo-btn-cek">Cek Jawaban</button>
+				<p id="periodik-fifo-cek-jawaban"></p>
+				<div id="div-periodik-fifo-next">
+					<button id="periodik-fifo-btn-next">Data Selanjutnya</button>
+				</div>
+			</div>
+		</div>
+		
+		<div  id="periodik-lifo-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<h1>Periodik lifo</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<!-- Isi konten di sini -->
+				<center><b id="periodik-lifo-soal">Tanggal 3 Januari</b></center>
+				<p>Isikan nominal uang dengan 2 (dua) angka di belakang koma.</p>
+				
+				<select id="select-priodik-lifo-0">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-lifo-0"></input>
+				
+				<select id="select-priodik-lifo-1">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-lifo-1"></input>
+				
+				<select id="select-priodik-lifo-2">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-lifo-2"></input>
+				
+				<select id="select-priodik-lifo-3">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-lifo-3"></input>
+					
+				
+				<button id="periodik-lifo-btn-cek">Cek Jawaban</button>
+				<p id="periodik-lifo-cek-jawaban"></p>
+				<div id="div-periodik-lifo-next">
+					<button id="periodik-lifo-btn-next">Transaksi Selanjutnya</button>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div  id="periodik-sederhana-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<h1>Periodik sederhana</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<!-- Isi konten di sini -->
+				<center><b id="periodik-sederhana-soal">Tanggal 3 Januari</b></center>
+				<p>Isikan nominal uang dengan 2 (dua) angka di belakang koma.</p>
+				
+				<select id="select-priodik-sederhana-0">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-sederhana-0"></input>
+				
+				<select id="select-priodik-sederhana-1">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-sederhana-1"></input>
+				
+				<select id="select-priodik-sederhana-2">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-sederhana-2"></input>
+				
+				<select id="select-priodik-sederhana-3">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-sederhana-3"></input>
+					
+				
+				<button id="periodik-sederhana-btn-cek">Cek Jawaban</button>
+				<p id="periodik-sederhana-cek-jawaban"></p>
+				<div id="div-periodik-sederhana-next">
+					<button id="periodik-sederhana-btn-next">Data Selanjutnya</button>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div  id="periodik-tertimbang-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<h1>Periodik tertimbang</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<!-- Isi konten di sini -->
+				<center><b id="periodik-tertimbang-soal">Tanggal 3 Januari</b></center>
+				<p>Isikan nominal uang dengan 2 (dua) angka di belakang koma.</p>
+				<select id="select-priodik-tertimbang-0">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-tertimbang-0"></input>
+				
+				<select id="select-priodik-tertimbang-1">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-tertimbang-1"></input>
+				
+				<select id="select-priodik-tertimbang-2">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-tertimbang-2"></input>
+						
+				<select id="select-priodik-tertimbang-3">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-periodik-tertimbang-3"></input>
+					
+				
+				<button id="periodik-tertimbang-btn-cek">Cek Jawaban</button>
+				<p id="periodik-tertimbang-cek-jawaban"></p>
+				<div id="div-periodik-tertimbang-next">
+					<button id="periodik-tertimbang-btn-next">Transaksi Selanjutnya</button>
+				</div>
+			</div>
+		</div>
+		
+		<div  id="perpetual-fifo-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<h1>Perpetual FIFO</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<!-- Isi konten di sini -->
+				<center><b id="perpetual-fifo-soal">Tanggal 3 Januari</b></center>
+				<p>Isikan nominal uang dengan 2 (dua) angka di belakang koma.</p>
+				
+				<select id="select-perpetual-fifo-0">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-fifo-0"></input>
+				
+				<select id="select-perpetual-fifo-1">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-fifo-1"></input>
+				
+				<select id="select-perpetual-fifo-2">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-fifo-2"></input>
+				
+				<select id="select-perpetual-fifo-3">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-fifo-3"></input>
+				
+				<select id="select-perpetual-fifo-4">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-fifo-4"></input>
+				
+				<select id="select-perpetual-fifo-5">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-fifo-5"></input>
+				
+				<button id="perpetual-fifo-btn-cek">Cek Jawaban</button>
+				<p id="perpetual-fifo-cek-jawaban"></p>
+				<div id="div-perpetual-fifo-next">
+					<button id="perpetual-fifo-btn-next">Data Selanjutnya</button>
+				</div>
+			</div>
+		</div>
+		
+		<div  id="perpetual-lifo-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<h1>Perpetual LIFO</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<!-- Isi konten di sini -->
+				<center><b id="perpetual-lifo-soal">Tanggal 3 Januari</b></center>
+				<p>Isikan nominal uang dengan 2 (dua) angka di belakang koma.</p>
+				
+				<select id="select-perpetual-lifo-0">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-lifo-0"></input>
+				
+				<select id="select-perpetual-lifo-1">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-lifo-1"></input>
+				
+				<select id="select-perpetual-lifo-2">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-lifo-2"></input>
+				
+				<select id="select-perpetual-lifo-3">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-lifo-3"></input>
+				
+				<select id="select-perpetual-lifo-4">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-lifo-4"></input>
+				
+				<select id="select-perpetual-lifo-5">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-lifo-5"></input>
+					
+				
+				<button id="perpetual-lifo-btn-cek">Cek Jawaban</button>
+				<p id="perpetual-lifo-cek-jawaban"></p>
+				<div id="div-perpetual-lifo-next">
+					<button id="perpetual-lifo-btn-next">Data Selanjutnya</button>
+				</div>
+			</div>
+		</div>
+		
+		<div  id="perpetual-bergerak-page" data-role="page" style="background: url('img/bg/bg-profil.png'); background-repeat: repeat-x repeat-y;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<h1>Perpetual Rata-Rata Bergerak</h1>
+			</div>
+			<div data-role="content" style="font-size: 16px;">
+				<p>Buatlah jurnal yang diperlukan selama bulan februari terkait dengan persediaan. Berikut transaksi bulan februari:</p>
+				<img src="img/transaksi-februari.png" style="width: 100%; max-width: 600px;"/>
+				<!-- Isi konten di sini -->
+				<center><b id="perpetual-bergerak-soal">Tanggal 3 Januari</b></center>
+				<p>Isikan nominal uang dengan 2 (dua) angka di belakang koma.</p>
+				
+				<select id="select-perpetual-bergerak-0">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-bergerak-0"></input>
+				
+				<select id="select-perpetual-bergerak-1">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-bergerak-1"></input>
+				
+				<select id="select-perpetual-bergerak-2">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-bergerak-2"></input>
+				
+				<select id="select-perpetual-bergerak-3">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-bergerak-3"></input>
+				
+				<select id="select-perpetual-bergerak-4">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-bergerak-4"></input>
+				
+				<select id="select-perpetual-bergerak-5">
+					<option value="0">Pilih</option>
+					<option value="1">Kas (D)</option>
+					<option value="2">Kas (K)</option>
+					<option value="3">Piutang Dagang (D)</option>
+					<option value="4">Piutang Dagang (K)</option>
+					<option value="5">Persediaan Barang Dagangan (D)</option>
+					<option value="6">Persediaan Barang Dagangan (K)</option>
+					<option value="7">Utang Dagang (D)</option>
+					<option value="8">Utang Dagang (K)</option>
+					<option value="9">Penjualan (D)</option>
+					<option value="10">Penjualan (K)</option>
+					<option value="11">Pembelian (D)</option>
+					<option value="12">Pembelian (K)</option>
+					<option value="13">Biaya Angkut Penjualan (D)</option>
+					<option value="14">Biaya Angkut Penjualan (K)</option>
+					<option value="15">Harga Pokok Penjualan (D)</option>
+					<option value="16">Harga Pokok Penjualan (K)</option>
+				</select>
+				<input type="text" class="uang" id="uang-perpetual-bergerak-5"></input>
+					
+				
+				<button id="perpetual-bergerak-btn-cek">Cek Jawaban</button>
+				<p id="perpetual-bergerak-cek-jawaban"></p>
+				<div id="div-perpetual-bergerak-next">
+					<button id="perpetual-bergerak-btn-next">Data Selanjutnya</button>
+				</div>
+			</div>
+		</div>
+		
+		<div  id="sekor-page" data-role="page" style="background-image: url('img/Icon%20Materi/background%20soal.jpg');background-size: 100% 100%;background-repeat: no-repeat;">
+			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="header">
+				<a href="#home-page"  data-role="button" data-icon="ms-home-bt" data-inline="true" >Home</a>
+				<h1 style="font-size: 24px;">EVALUASI</h1>
+			</div>
+			<div data-role="content" align="justify" style="font-size: 16px;">
+				<!-- Isi konten di sini -->	
+				<center>
+					<div style="margin:auto;">
+						<div class="ui-corner-all custom-corner" style="width:200px">
+							<div data-role="header">
+								<h3>Selamat</h3>
+							</div>
+							<div data-role="content" style="background-color: rgba(255,255,255,0.7);">
+								<p>Kamu telah menyelesaikan penjurnalan dengan sistem <span id="sistem">Periodik: FIFO</span></p>
+								<a style="white-space:normal" href="#eval2-page" data-theme="a"  data-role="button">Kembali <br/>ke Evaluasi</a>
+							</div>
+						</div>
+					</div>
+				</center>
+			</div>
+			<div data-role="footer" data-id="footer" id="footer" data-position="fixed" data-tap-toggle="false">
+				<a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+			</div>
+		</div>
+    </div>
+	<script>
+			function debugKuis() {
+				alert("OK!");
+			}
+		//$(document).ready(function(){
+			var sndClick = new Audio();
+			sndClick.src = 'sound/click.mp3';
+			$("a").mousedown(function() {
+				sndClick.play();
+			});
+			
+		//});
+	</script>
+		
+	<script>
+		function debugKuis1() {
+			alert("OK!");
+		}
+		var nomorSoal = 0;
+		var sekor = 0;
+		var pengali = 5;
+		var nomorAcak = [0,1,2,3,4,5,6,7,8,9,
+						10,11,12,13,14,15,16,17,18,19,
+						20,21,22,23,24,25,26,27,28,29,
+						30,31,32,33,34,35,36,37,38,39,
+						40,41,42,43,44,45,46,47,48,49
+						];
+		var soal = [
+					"<b>Berikut ini merupakan kegiatan yang dilakukan dalam perusahaan dagang, kecuali...</b>",
+					"<b>Berikut ini yang bukan merupakan persediaan barang dagang adalah...</b>",
+					"<b>Berikut ini bukan merupakan ciri – ciri dari sistem pencatatan periodik yaitu...</b>",
+					"<b>Berikut ini bukan merupakan ciri – ciri dari sistem pencatatan perpetual yaitu...</b>",
+					"<b>Apabila perusahaan menggunakan metode penilaian persediaan dengan metode FIFO maka barang dagangan yang akan keluar pertama dari gudang yaitu ...</b>",
+					"<b>Apabila perusahaan menggunakan metode penilaian persediaan dengan metode LIFO maka barang dagangan yang akan keluar pertama dari gudang yaitu...</b>",
+					"<b>Metode yang digunakan dalam pencatatan persediaan barang dagangan adalah metode fisik dan perpetual. Dalam metode perpetual, jika terjadi pembelian barang dagangan maka akan dicatat dalam rekening...</b>",
+					"<b>Berikut ini alasan larangan penggunaan LIFO dalam IRFS, kecuali ...</b>",
+					"<b>Dalam sistem perpetual, transaksi yang berkaitan dengan mutasi persediaan akan dicatat secara langsung dalam akun persediaan. Berikut ini pernyataan terkait sistem tersebut kecuali...</b>",
+					"<b>PT. Jaya Karya membeli barang dagangan sebesar Rp 3.250.000,00, termin 2/10, n/30. Buatlah jurnal yang diperlukan jika menggunakan sistem pencatatan periodik!</b>",
+					"<b>PT. Jaya Karya membeli barang dagangan sebesar Rp 3.250.000,00, termin 2/10, n/30. Buatlah jurnal yang diperlukan jika menggunakan sistem pencatatan perpetual!</b>",
+					"<b>PT. Mekar Jaya membeli barang dagangan sebesar Rp 9.500.000,00 secara tunai dengan potongan 2%. Buatlah jurnal yang diperlukan jika menggunakan sistem pencatatan perpetual!</b>",
+					"<b>PT. Mekar Jaya membeli barang dagangan sebesar Rp 9.500.000,00 secara tunai dengan potongan 2%. Buatlah jurnal yang diperlukan jika menggunakan sistem pencatatan periodik!</b>",
+					"<b>Setelah dilakukan pengecekan terhadap barang yang dibeli secara kredit, terdapat barang yang tidak sesuai dengan pesanan sebesar Rp 750.000,00 dan dikembalikan ke penjual. Buatlah jurnal yang diperlukan jika perusahaan menggunakan sistem pencatatan periodik.</b>",
+					"<b>Setelah dilakukan pengecekan terhadap barang yang dibeli secara kredit, terdapat barang yang tidak sesuai dengan pesanan sebesar Rp 750.000,00 dan dikembalikan ke penjual. Buatlah jurnal yang diperlukan jika perusahaan menggunakan sistem pencatatan perpetual.</b>",
+					"<b>Terdapat barang cacat atas pembelian tunai senilai Rp 500.000,00 dan dikembalikan ke penjual. Buatlah jurnal yang diperlukan jika perusahaan menggunakan sistem pencatatan perpetual.</b>",
+					"<b>Terdapat barang cacat atas pembelian tunai senilai Rp 500.000,00 dan dikembalikan ke penjual. Buatlah jurnal yang diperlukan jika perusahaan menggunakan sistem pencatatan periodik.</b>",
+					"<b>Dibayar Biaya angkut pembelian atas pembelian barang dagangan secara kredit sebesar Rp 450.000,00. Buatlah jurnal jika perusahaan menggunakan sistem pencatatan perpetual.</b>",
+					"<b>Dibayar Biaya angkut atas pembelian barang dagangan Rp 450.000,00. Buatlah jurnal jika perusahaan menggunakan sistem pencatatan periodik.</b>",
+					"<b>PT. Jaya Karya membayar utang pada periode diskon atas pembelian barang dagangan sebesar Rp 3.250.000,00, termin 2/10, n/30. Buatlah jurnal yang diperlukan jika menggunakan sistem pencatatan periodik.</b>",
+					"<b>PT. Jaya Karya membayar utang pada periode diskon atas pembelian barang dagangan sebesar Rp 3.250.000,00, termin 2/10, n/30. Buatlah jurnal yang diperlukan jika menggunakan sistem pencatatan perpetual.</b>",
+					"<b>Pada tanggal 20 januari PT. Abadi Jaya membayar utang dagang atas pembelian barang dagangan tanggal 5 januari senilai Rp 12.000.000,00 dengan termin 2/10, n/30. Buatlah jurnal yang diperlukan jika perusahaan menggunakan sistem pencatatan periodik.</b>",
+					"<b>Pada tanggal 20 januari PT. Abadi Jaya membayar utang dagang atas pembelian barang dagangan tanggal 5 januari senilai Rp 12.000.000,00 dengan termin 2/10, n/30. Buatlah jurnal yang diperlukan jika perusahaan menggunakan sistem pencatatan perpetual.</b>",
+					"<b>PT. Mekar Jaya menjual barang dagangan senilai Rp 4.500.000,00 termin 2/5, n/60 dengan harga pokok penjualan sebesar Rp 3.750.000,00. Buatlah jurnal yang diperlukan jika menggunakan sistem periodik.</b>",
+					"<b>PT. Mekar Jaya menjual barang dagangan senilai Rp 4.500.000,00 termin 2/5, n/60 dengan harga pokok penjualan sebesar Rp 3.750.000,00. Buatlah jurnal yang diperlukan jika menggunakan sistem perpetual.</b>",
+					"<b>Dijual barang dagangan secara tunai senilai Rp 5.525.000,00 dengan harga pokok penjualan sebesar Rp 4.000.000,00. Buatlah jurnal untuk mencatat transaksi tersebut dengan sistem pencatatan perpetual.</b>",
+					"<b>Dijual barang dagangan secara tunai senilai Rp 5.525.000,00 dengan harga pokok penjualan sebesar Rp 4.000.000,00. Buatlah jurnal untuk mencatat transaksi tersebut dengan sistem pencatatan periodik.</b>",
+					"<b>Menerima retur atas penjualan kredit senilai Rp 500.000,00 dengan harga pokok penjualan sebesar Rp 400.000,00. Buatlah jurnal yang diperlukan menggunakan sistem periodik.</b>",
+					"<b>Menerima retur atas penjualan kredit senilai Rp 500.000,00 dengan harga pokok penjualan sebesar Rp 400.000,00. Buatlah jurnal yang diperlukan menggunakan sistem perpetual.</b>",
+					"<b>PT. Medika Permai menerima pelunasan piutang Toko Citra Medika sebesar Rp 7.500.000,00 dengan potongan 2%. Buatlah jurnal yang diperlukan dengan sistem pencatatan periodik.</b>",
+					"<b>PT. Medika Permai menerima pelunasan piutang Toko Citra Medika sebesar Rp 7.500.000,00 dengan potongan 2%. Buatlah jurnal yang diperlukan dengan sistem pencatatan perpetual.</b>",
+					"<b>Berikut ini data UD Nusa Indah pada 31 Maret 2016:<br/><table><tr><td>Persediaan awal </td><td>Rp </td><td class='uang'>12.100.000,00</td></tr><tr><td>Pembelian </td><td>Rp </td><td class='uang'>192.400.000,00</td></tr><tr><td>Retur Pembelian </td><td>Rp </td><td class='uang'>9.500.000,00</td></tr><tr><td>Potongan Pembelian </td><td>Rp </td><td class='uang'>12.750.000,00</td></tr><tr><td>Biaya angkut pembelian </td><td>Rp </td><td class='uang'>12.500.000,00</td></tr><tr><td>Persediaan akhir </td><td>Rp </td><td class='uang'>15.550.000,00</td></tr></table>Jurnal yang dibutuhkan untuk menyesuaikan persediaan akhir periode pada sistem periodik yaitu:</b>",
+					"<b>Berikut ini data UD Nusa Indah pada 31 Maret 2016:<br/><table><tr><td>Persediaan awal </td><td>Rp </td><td class='uang'>12.100.000,00</td></tr><tr><td>Pembelian </td><td>Rp </td><td class='uang'>192.400.000,00</td></tr><tr><td>Retur Pembelian </td><td>Rp </td><td class='uang'>9.500.000,00</td></tr><tr><td>Potongan Pembelian </td><td>Rp </td><td class='uang'>12.750.000,00</td></tr><tr><td>Biaya angkut pembelian </td><td>Rp </td><td class='uang'>12.500.000,00</td></tr><tr><td>Persediaan akhir </td><td>Rp </td><td class='uang'>15.550.000,00</td></tr></table>Buatlah jurnal yang dibutuhkan untuk menyesuaikan persediaan akhir periode pada sistem perpetual yaitu:</b>",
+					"<b>Berikut ini terkait persediaan pada Toko Elka pada 31 Desember 2015:<br/><table><tr><td>Persediaan awal </td><td>Rp </td><td class='uang'>2.450.000,00</td></tr><tr><td>Pembelian </td><td>Rp </td><td class='uang'>14.650.000,00</td></tr><tr><td>Potongan Pembelian </td><td>Rp </td><td class='uang'>1.500.000,00</td></tr><tr><td>Persediaan akhir </td><td>Rp </td><td class='uang'>2.950.000,00</td></tr></table>Jurnal yang dibutuhkan untuk menyesuaikan persediaan akhir periode pada sistem periodik yaitu:</b>",
+					"<b>Berikut ini terkait persediaan pada Toko Elka pada 31 Desember 2015:<br/><table><tr><td>Persediaan awal </td><td>Rp </td><td class='uang'>2.450.000,00</td></tr><tr><td>Pembelian </td><td>Rp </td><td class='uang'>14.650.000,00</td></tr><tr><td>Potongan Pembelian </td><td>Rp </td><td class='uang'>1.500.000,00</td></tr><tr><td>Persediaan akhir </td><td>Rp </td><td class='uang'>2.950.000,00</td></tr></table>Buatlah jurnal yang dibutuhkan untuk menyesuaikan persediaan akhir periode pada sistem perpetual yaitu:/b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Berdasarkan data tersebut, nilai HPP jika menggunakan metode penilaian persediaan FIFO adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Nilai persediaan akhir jika menggunakan metode penilaian persediaan FIFO adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Nilai HPP jika menggunakan metode penilaian persediaan LIFO adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Nilai persediaan akhir jika menggunakan metode penilaian persediaan LIFO adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Biaya per unit jika menggunakan metode penilaian persediaan rata-rata sederhana adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Nilai HPP jika menggunakan metode penilaian persediaan rata – rata sederhana adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Nilai persediaan akhir jika menggunakan metode penilaian persediaan rata-rata sederhana adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Biaya per unit jika menggunakan metode penilaian persediaan rata-rata tertimbang adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Nilai HPP jika menggunakan metode penilaian persediaan rata – rata tertimbang adalah...</b>",
+					"<b>UD Makmur menggunakan sistem pencatatan periodik. Berikut ini data UD Makmur pada bulan Desember 2015:<table><tr><td>2 Des</td><td>Jual</td><td>400 @Rp 8.000,00</td></tr><tr><td>5 Des</td><td>Beli</td><td>500 @Rp 4.500,00</td></tr><tr><td>7 Des</td><td>Beli</td><td>200 @Rp 4.000,00</td></tr><tr><td>15 Des</td><td>Jual</td><td>500 @Rp 8.000,00</td></tr><tr><td>20 Des</td><td>Beli</td><td>300 @Rp 4.750,00</td></tr><tr><td>25 Des</td><td>Jual</td><td>350 @Rp 8.000,00</td></tr><tr><td>30 Des</td><td>Beli</td><td>100 @Rp 5.000,00</td></tr></table>Diketahui persediaan awalnya sebanyak 450 unit @Rp3.900,00.<br/>Nilai persediaan akhir jika menggunakan metode penilaian persediaan rata-rata tertimbang adalah...</b>",
+					"<b>Diketahui UD. Makmur memiliki persediaan di gudang sebanyak 400 unit dengan harga R 1.200,00. Pada tanggal 2 membeli barang dagangan sebanyak 1.000 unit dengan harga Rp 1.350,00 dan pada tanggal 3 menjual barang dagangan dengan termin 2/10, n/30 sebanyak 900 unit dengan harga Rp 2.100,00. Buatlah jurnal yang diperlukan pada saat penjualan jika perusahaan menggunakan sistem pencatatan periodik dengan metode penilaian FIFO!</b>",
+					"<b>Diketahui UD. Makmur memiliki persediaan di gudang sebanyak 400 unit dengan harga R 1.200,00. Pada tanggal 2 membeli barang dagangan sebanyak 1.000 unit dengan harga Rp 1.350,00 dan pada tanggal 3 menjual barang dagangan dengan termin 2/10, n/30 sebanyak 900 unit dengan harga Rp 2.100,00. Buatlah jurnal yang diperlukan pada saat penjualan jika perusahaan menggunakan sistem pencatatan periodik dengan metode penilaian LIFO!</b>",
+					"<b>Diketahui UD. Makmur memiliki persediaan di gudang sebanyak 400 unit dengan harga R 1.200,00. Pada tanggal 2 membeli barang dagangan sebanyak 1.000 unit dengan harga Rp 1.350,00 dan pada tanggal 3 menjual barang dagangan dengan termin 2/10, n/30 sebanyak 900 unit dengan harga Rp 2.100,00. Buatlah jurnal yang diperlukan pada saat penjualan jika perusahaan menggunakan sistem pencatatan perpetual dengan metode penilaian FIFO!</b>",
+					"<b>Diketahui UD. Makmur memiliki persediaan di gudang sebanyak 400 unit dengan harga R 1.200,00. Pada tanggal 2 membeli barang dagangan sebanyak 1.000 unit dengan harga Rp 1.350,00 dan pada tanggal 3 menjual barang dagangan dengan termin 2/10, n/30 sebanyak 900 unit dengan harga Rp 2.100,00. Buatlah jurnal yang diperlukan pada saat penjualan jika perusahaan menggunakan sistem pencatatan perpetual dengan metode penilaian LIFO!</b>",
+					"<b>Diketahui UD. Makmur memiliki persediaan di gudang sebanyak 400 unit dengan harga R 1.200,00. Pada tanggal 2 membeli barang dagangan sebanyak 1.000 unit dengan harga Rp 1.350,00 dan pada tanggal 3 menjual barang dagangan dengan termin 2/10, n/30 sebanyak 900 unit dengan harga Rp 2.100,00. Buatlah jurnal yang diperlukan pada saat penjualan jika perusahaan menggunakan sistem pencatatan perpetual dengan metode penilaian Rata – rata bergerak!</b>"    
+				];
+		var opsiA = [									 	   
+					"Menjual barang dagangan yang dibeli.",
+					"Barang konsinyasi yang belum terjual.",
+					"Melakukan perhitungan fisik setiap akhir periode.",
+					"Jumlah kredit akun persediaan menunjukan harga pokok barang yang dijual.",
+					"Barang yang dibeli pertama.",
+					"Barang yang dibeli pertama.",
+					"Persediaan barang dagangan.",
+					"Penggunaan LIFO tidak sesuai dengan keadaan yang sebenarnya.",
+					"Pembelian dicatat secara langsung dalam akun persediaan barang dagangan",
+					"Pembelian (D) Rp 3.250.000,00<br/> Kas (K) Rp 3.250.000,00",
+					"Pembelian (D) Rp 3.250.000,00<br/> Kas (K) Rp 3.250.000,00",
+					"Pembelian (D) Rp 9.500.000,00<br/> Potongan Pembelian (K) Rp 190.000,00<br/> Kas (K) Rp 9.310.000,00",
+					"Pembelian (D) Rp 9.500.000,00<br/> Potongan Pembelian (K) Rp 190.000,00<br/> Kas (K) Rp 9.310.000,00",
+					"Utang Dagang (D) Rp 750.000,00 Pembelian (K) Rp 750.000,00",
+					"Utang Dagang (D) Rp 750.000,00<br/> Pembelian (K) Rp 750.000,00",
+					"Kas (D) Rp 500.000,00<br/> Persediaan Barang Dagangan (K) Rp 500.000,00",
+					"Kas (D) Rp 500.000,00<br/> Persediaan Barang Dagangan (K) Rp 500.000,00",
+					"Biaya Angkut pembelian (D) Rp 450.000,00<br/> Kas (K) Rp 450.000,00",
+					"Biaya Angkut pembelian (D) Rp 450.000,00<br/> Kas  (K) Rp 450.000,00",
+					"Utang Dagang (D) Rp 3.250.000,00<br/> Potongan Pembelian (K) Rp 65.000,00<br/> Kas (K)<br/> Rp  3.185.000,00",
+					"Utang Dagang (D) Rp 3.250.000,00<br/> Potongan Pembelian (K) Rp 65.000,00<br/> Kas (K) Rp  3.185.000,00",
+					"Utang Dagang (D) Rp 12.000.000,00<br/> Kas (K) Rp 12.000.000,00",
+					"Utang Dagang (D) Rp 12.000.000,00<br/> Kas (K) Rp 12.000.000,00",
+					"Penjualan (D) Rp 4.500.000,00<br/> Piutang Dagang (K) Rp 4.500.000,00",
+					"Penjualan (D) Rp 4.500.000,00<br/> Piutang Dagang (K) Rp 4.500.000,00",
+					"Kas (D) Rp 5.525.000,00<br/> Harga Pokok Penjualan (D) Rp 4.000.000,00<br/> Persediaan Barang Dagangan (K) Rp 4.000.000,00<br/> Penjualan (K) Rp 5.525.000,00",
+					"Kas (D) Rp 5.525.000,00<br/> Harga Pokok Penjualan (D) Rp 4.000.000,00<br/> Persediaan Barang Dagangan (K) Rp 4.000.000,00<br/> Penjualan (K) Rp 5.525.000,00",
+					"Retur penjualan (D) Rp 500.000,00<br/> Piutang dagang (K) Rp 500.000,00<br/>",
+					"Retur penjualan (D) Rp 500.000,00<br/> Piutang dagang (K) Rp 500.000,00<br/>",
+					"Kas (D) Rp 7.350.000,00<br/> Potongan penjualan (D) Rp 150.000,00<br/> Utang Dagang (K) Rp 7.500.000,00",
+					"Kas (D) Rp 7.350.000,00<br/> Potongan penjualan (D) Rp 150.000,00<br/> Utang Dagang (K) Rp 7.500.000,00",
+					"Persediaan (D) Rp 15.550.000,00<br/> Pembelian (D) Rp 192.400.000,00<br/> Biaya angkut pembelian (D) Rp 12.500.000,00<br/> Retur pembelian (K) Rp 9.500.000,00<br/> Potongan pembelian (K) Rp 12.750.000,00<br/> Harga Pokok Pembelian (K) Rp  184.200.000,00",
+					"Persediaan (D) Rp 15.550.000,00<br/> Pembelian (D) Rp 192.400.000,00<br/> Biaya angkut pembelian (D) Rp 12.500.000,00<br/> Retur pembelian (K) Rp 9.500.000,00<br/> Potongan pembelian (K) Rp 12.750.000,00<br/> Harga Pokok Pembelian (K) Rp  184.200.000,00",
+					"Persediaan (D) Rp 2.950.000,00<br/> Potongan pembelian (D) Rp 1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 12.650.000,00<br/> Persediaan (K) Rp 2.450.000,00<br/> Pembelian (K) Rp 14.650.000,00",
+					"Persediaan (D) Rp 2.950.000,00<br/> Potongan pembelian (D) Rp 1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 12.650.000,00<br/> Persediaan (K) Rp 2.450.000,00<br/> Pembelian (K) Rp 14.650.000,00",
+					"Rp5.401.000,00 ",
+					"Rp1.170.000,00 ",
+					"Rp5.401.000,00 ",
+					"Rp1.170.000,00 ",
+					"Rp4.341,94 ",
+					"Rp5.041.000,00 ",
+					"Rp1.239.000,00 ",
+					"Rp4.341,94 ",
+					"Rp5.041.000,00 ",
+					"Rp1.239.000,00 ",
+					"Kas (D) Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Kas (D) Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Kas (D) Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Kas (D) Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Kas (D) Rp 1.176.426,00<br/> Penjualan (K) Rp 1.176.426,00"
+				];
+		var opsiB = [									 	   
+					"Menjual barang yang telah selesai diproduksi.",
+					"Barang yang dibeli dan disimpan untuk dijual kembali.",
+					"Menjurnal setiap pembelian persediaan pada akun pembelian.",
+					"Penjualan barang dagangan langsung menjurnal harga pokok penjualannya.",
+					"Barang yang dibeli terakhir.",
+					"Barang yang dibeli terakhir.",
+					"Pembelian.",
+					"Barang yang disimpan terlalu lama akan kadaluarsa.",
+					"Nilai persediaan diketahui setiap waktu.",
+					"Pembelian (D) Rp 3.250.000,00<br/> Utang Dagang (K) Rp 3.250.000,00",
+					"Pembelian (D) Rp 3.250.000,00<br/> Utang Dagang (K) Rp 3.250.000,00",
+					"Persediaan Barang Dagangan (D) Rp 9.500.000,00<br/> Potongan Pembelian (K) Rp 190.000,00",
+					"Persediaan Barang Dagangan (D) Rp 9.500.000,00<br/> Potongan Pembelian (K) Rp 190.000,00<br/> Kas (K) Rp 9.310.000,00",
+					"Kas (D) Rp 750.000,00<br/> Retur pembelian (K) Rp 750.000,00",
+					"Kas (D) Rp 750.000,00<br/> Retur pembelian (K) Rp 750.000,00",
+					"Kas (D) Rp 500.000,00<br/> Retur Pembelian (K) Rp 500.000,00",
+					"Kas (D) Rp 500.000,00<br/> Retur Pembelian (K) Rp 500.000,00",
+					"Biaya angkut Pembelian  (D) Rp 450.000,00<br/> Utang Dagang (K)    Rp 450.000,00",
+					"Biaya angkut Pembelian (D) Rp 450.000,00<br/> Utang Dagang (K)    Rp 450.000,00",
+					"Utang Dagang (D)   Rp 3.250.000,00<br/> Persediaan Barang Dagangan (K)  Rp       65.000,00<br/> Kas (K)                Rp  3.185.000,00",
+					"Utang Dagang (D)   Rp 3.250.000,00<br/> Persediaan Barang Dagangan (K)  Rp       65.000,00<br/> Kas (K)                Rp  3.185.000,00",
+					"Utang Dagang (D)  Rp 12.000.000,00<br/> Potongan Pembelian (K)   Rp      240.000,00<br/> Kas (K)     Rp 11.760.000,00",
+					"Utang Dagang (D)  Rp 12.000.000,00<br/> Potongan Pembelian (K)   Rp      240.000,00<br/> Kas  (K)     Rp 11.760.000,00",
+					"Piutang Dagang (D)  Rp 4.500.000,00<br/> Penjualan  (K)     Rp 4.500.000,00",
+					"Piutang Dagang (D)  Rp 4.500.000,00<br/> Penjualan (K)      Rp 4.500.000,00",
+					"Kas (D)      Rp 4.000.000,00<br/> Harga Pokok Penjualan (D) Rp 5.525.000,00<br/> Persediaan Barang Dagangan (K)  Rp 5.525.000,00<br/> Penjualan (K)     Rp 4.000.000,00",
+					"Kas  (D)    Rp 4.000.000,00<br/> Harga Pokok Penjualan (D) Rp 5.525.000,00<br/> Persediaan Barang Dagangan (K)  Rp 5.525.000,00<br/> Penjualan (K)     Rp 4.000.000,00",
+					"Retur penjualan (D)  Rp 500.000,00<br/> Utang Dagang (K)    Rp 500.000,00",
+					"Retur penjualan (D)  Rp 500.000,00<br/> Utang Dagang (K)    Rp 500.000,00",
+					"Kas (D)    Rp 7.350.000,00<br/> Persediaan Barang Dagangan (D) Rp    150.000,00<br/> Piutang Dagang (K)    Rp 7.500.000,00",
+					"Kas (D)    Rp 7.350.000,00<br/> Persediaan Barang Dagangan (D) Rp    150.000,00<br/> Piutang Dagang (K)    Rp 7.500.000,00",
+					"Persediaan (D)   Rp   15.550.000,00<br/> Retur pembelian (D)  Rp     9.500.000,00<br/> Potongan pembelian (D)  Rp   12.750.000,00<br/> Harga Pokok Pembelian (D) Rp 179.200.000,00<br/> Persediaan (K)     Rp   12.100.000,00<br/> Pembelian (K)     Rp 192.400.000,00<br/> Biaya angkut pembelian (K)   Rp   12.500.000,00",
+					"Persediaan (D)   Rp   15.550.000,00<br/> Retur pembelian (D)  Rp     9.500.000,00<br/> Potongan pembelian (D)  Rp   12.750.000,00<br/> Harga Pokok Pembelian (D) Rp 179.200.000,00<br/> Persediaan (K)     Rp   12.100.000,00<br/> Pembelian (K)     Rp 192.400.000,00<br/> Biaya angkut pembelian (K)   Rp   12.500.000,00",
+					"Persediaan (D)   Rp   2.450.000,00<br/> Potongan pembelian (D)  Rp   1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 12.650.000,00<br/>  Persediaan (K)     Rp   2.950.000,00<br/>  Pembelian (K)     Rp 14.650.000,00",
+					"Persediaan (D)   Rp   2.450.000,00<br/> Potongan pembelian (D)  Rp   1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 12.650.000,00<br/>  Persediaan (K)     Rp   2.950.000,00<br/>  Pembelian (K)     Rp 14.650.000,00",
+					"Rp 5.280.000,00",
+					"Rp 1.329.000,00",
+					"Rp 5.280.000,00",
+					"Rp 1.329.000,00",
+					"Rp 4.431,94",
+					"Rp 5.401.000,00",
+					"Rp 1.329.000,00",
+					"Rp 4.431,94",
+					"Rp 5.401.000,00",
+					"Rp 1.329.000,00",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Penjualan (K) Rp 1.890.000,00"
+				];
+		var opsiC = [									 	   
+					"Membeli barang tanpa diolah lebih lanjut.",
+					"Barang yang dijual untuk kegiatan produksi.",
+					"Membuat jurnal penyesuaian sesilih persediaan pada akhir periode.",
+					"Memerlukan perhitungan fisik akhir periode.",
+					"Barang yang mendekati kadaluarsa.",
+					"Barang yang mendekati kadaluarsa.",
+					"Nama barang yang dibeli.",
+					"Nilai barang tidak akan relevan dengan nilai pasar.",
+					"Pengembalian barang cacat yang  dibeli akan dicatat ke retur pembelian.",
+					"Persediaan Barang Dagangan (D) Rp 3.250.000,00<br/> Kas (K) Rp 3.250.000,00",
+					"Persediaan Barang Dagangan (D) Rp 3.250.000,00<br/> Kas (K) Rp 3.250.000,00",
+					"Pembelian (D) Rp 9.500.000,00<br/> Kas (K) Rp 9.500.000,00",
+					"Pembelian (D) Rp 9.500.000,00<br/> Kas (K) Rp 9.500.000,00",
+					"Utang Dagang (D) Rp 750.000,00<br/> Retur Pembelian  (K) Rp 750.000,00",
+					"Utang Dagang (D) Rp 750.000,00<br/> Retur Pembelian  (K) Rp 750.000,00",
+					"Kas (D) Rp 500.000,00<br/> Pembelian (K) Rp 500.000,00",
+					"Kas (D) Rp 500.000,00<br/> Pembelian (K) Rp 500.000,00",
+					"Persediaan Barang Dagangan (D) Rp 450.000,00<br/> Kas (K) Rp 450.000,00",
+					"Persediaan Barang Dagangan (D) Rp 450.000,00<br/> Kas (K) Rp 450.000,00",
+					"Utang Dagang (D) Rp 3.250.000,00<br/> Kas (K) Rp  3.250.000,00",
+					"Utang Dagang (D) Rp 3.250.000,00<br/> Kas (K) Rp  3.250.000,00",
+					"Kas (D)    Rp 11.760.000,00<br/> Piutang Dagang (K)     Rp 11.760.000,00",
+					"Kas (D)    Rp 11.760.000,00<br/> Piutang Dagang (K)     Rp 11.760.000,00",
+					"Piutang Dagang (D)  Rp 3.750.000,00<br/> Persediaan Barang Dagangan (K)  Rp 3.750.000,00",
+					"Piutang Dagang (D)  Rp 3.750.000,00<br/> Persediaan Barang Dagangan (K)  Rp 3.750.000,00",
+					"Kas  (D)    Rp 5.525.000,00<br/> Persediaan Barang Dagangan (D) Rp 4.000.000,00<br/> Harga Pokok Penjualan (K)    Rp 4.000.000,00<br/> Penjualan (K)     Rp 5.525.000,00",
+					"Kas  (D)    Rp 5.525.000,00<br/> Persediaan Barang Dagangan (D) Rp 4.000.000,00<br/> Harga Pokok Penjualan (K)    Rp 4.000.000,00<br/> Penjualan (K)     Rp 5.525.000,00",
+					"Retur penjualan (D)  Rp 500.000,00<br/> Persediaan barang dagangan (D) Rp 400.000,00<br/> Harga pokok penjualan (K)   Rp 400.000,00<br/> Piutang dagang (K)    Rp 500.000,00",
+					"Retur penjualan (D)  Rp 500.000,00<br/> Persediaan barang dagangan (D) Rp 400.000,00<br/> Harga pokok penjualan (K)   Rp 400.000,00<br/> Piutang dagang (K)    Rp 500.000,00",
+					"Kas (D)    Rp 7.350.000,00<br/> Persediaan Barang Dagangan (D) Rp    150.000,00<br/> Harga Pokok Penjualan (K)   Rp    150.000,00<br/> Piutang Dagang (K)    Rp 7.350.000,00",
+					"Kas (D)    Rp 7.350.000,00<br/> Persediaan Barang Dagangan (D) Rp    150.000,00<br/> Harga Pokok Penjualan (K)   Rp    150.000,00<br/> Piutang Dagang (K)    Rp 7.350.000,00",
+					"Persediaan (D)   Rp   12.100.000,00<br/> Retur pembelian (D)  Rp     9.500.000,00<br/> Potongan pembelian(D)  Rp   12.750.000,00<br/> Harga Pokok Pembelian (D) Rp 196.650.000,00<br/> Persediaan (K)     Rp   15.550.000,00<br/> Pembelian (K)     Rp 192.400.000,00<br/> Biaya angkut pembelian (K)   Rp   12.500.000,00",
+					"Persediaan (D)   Rp   12.100.000,00<br/> Retur pembelian (D)  Rp     9.500.000,00<br/> Potongan pembelian(D)  Rp   12.750.000,00<br/> Harga Pokok Pembelian (D) Rp 196.650.000,00<br/> Persediaan (K)     Rp   15.550.000,00<br/> Pembelian (K)     Rp 192.400.000,00<br/> Biaya angkut pembelian (K)   Rp   12.500.000,00",
+					"Persediaan (D)   Rp   2.450.000,00<br/> Potongan pembelian (D)  Rp   1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 13.650.000,00<br/>  Persediaan (K)     Rp   2.950.000,00<br/>  Pembelian (K)     Rp 14.650.000,00",
+					"Persediaan (D)   Rp   2.450.000,00<br/> Potongan pembelian (D)  Rp   1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 13.650.000,00<br/>  Persediaan (K)     Rp   2.950.000,00<br/>  Pembelian (K)     Rp 14.650.000,00",
+					"Rp5.820.000,00 ",
+					"Rp 1.450.000,00",
+					"Rp 5.820.000,00",
+					"Rp 1.450.000,00",
+					"Rp 4.430,94",
+					"Rp 5.427.419,35",
+					"Rp1.302.580,65 ",
+					"Rp4.430,94 ",
+					"Rp5.427.419,35 ",
+					"Rp1.302.580,65 ",
+					"Kas (D)    Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.155.000,00<br/>  Persediaan (K)     Rp 1.155.000,00<br/> Penjualan (K)     Rp 1.890.000,00",
+					"Kas (D)    Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.215.000,00<br/>  Persediaan (K)     Rp 1.215.000,00<br/> Penjualan (K)     Rp 1.890.000,00",
+					"Kas (D)   Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.155.000,00<br/>  Persediaan (K)     Rp 1.155.000,00<br/> Penjualan (K)     Rp 1.890.000,00",
+					"Kas (D)    Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.215.000,00<br/>  Persediaan (K)     Rp 1.215.000,00<br/> Penjualan (K)     Rp 1.890.000,00",
+					"Kas (D)    Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.176.426,00<br/>  Persediaan (K)     Rp 1.176.426,00<br/> Penjualan (K)      Rp 1.890.000,00"
+				];
+		var opsiD = [									 	   
+					"Menyimpan persediaan barang untuk dijual.",
+					"Barang jadi yang disimpan untuk dijual kembali.",
+					"Menghitung harga pokok penjualan di akhir periode.",
+					"Menjurnal perubahan akun persediaan secara langsung.",
+					"Barang yang tidak tahan lama.",
+					"Barang yang tidak tahan lama.",
+					"Bahan baku.",
+					"Menyebabkan perbedaan laba yang signifikan.",
+					"Harga pokok penjualan dicatat saat terjadi penjualan.",
+					"Persediaan Barang Dagangan (D)  Rp 3.250.000,00<br/> Utang Dagang (K)    Rp 3.250.000,00",
+					"Persediaan Barang Dagangan (D)  Rp 3.250.000,00<br/> Utang Dagang (K)    Rp 3.250.000,00",
+					"Persediaan Barang Dagangan (D)Rp 9.500.000,00<br/> Kas (K)     Rp 9.500.000,00",
+					"Persediaan Barang Dagangan (D)Rp 9.500.000,00<br/> Kas (K)     Rp 9.500.000,00",
+					"Retur Pembelian (D)    Rp 750.000,00<br/> Persediaan Barang Dagangan (K)   Rp 750.000,00",
+					"Retur Pembelian (D)    Rp 750.000,00<br/> Persediaan Barang Dagangan (K)   Rp 750.000,00",
+					"Retur Pembelian (D)  Rp 500.000,00<br/> Persediaan Barang Dagangan  (K)  Rp 500.000,00",
+					"Retur Pembelian (D)  Rp 500.000,00<br/> Persediaan Barang Dagangan  (K)  Rp 500.000,00",
+					"Persediaan Barang Dagangan (D) Rp 450.000,00<br/> Utang Dagang (K)    Rp 450.000,00",
+					"Persediaan Barang Dagangan (D) Rp 450.000,00<br/> Utang Dagang (K)    Rp 450.000,00",
+					"Utang Dagang (D)  Rp  3.185.000,00<br/> Potongan Pembelian (D)  Rp       65.000,00<br/> Kas (K)     Rp 3.250.000,00",
+					"Utang Dagang (D)  Rp  3.185.000,00<br/> Potongan Pembelian (D)  Rp       65.000,00<br/> Kas (K)     Rp 3.250.000,00",
+					"Utang Dagang (D)  Rp 12.000.000,00<br/> Persediaan Barang Dagangan (K)   Rp      240.000,00<br/> Kas (K)     Rp 11.760.000,00",
+					"Utang Dagang (D)  Rp 12.000.000,00<br/> Persediaan Barang Dagangan (K)   Rp      240.000,00<br/> Kas (K)     Rp 11.760.000,00",
+					"Piutang Dagang (D)  Rp 4.500.000,00<br/> Penjualan (K) Rp 4.500.000,00<br/> Harga Pokok Penjualan (D) Rp 3.750.000,00<br/> Persediaan Barang Dagangan (K)   Rp 3.750.000,00",
+					"Piutang Dagang (D)  Rp 4.500.000,00<br/> Penjualan (K)      Rp 4.500.000,00<br/> Harga Pokok Penjualan (D) Rp 3.750.000,00<br/> Persediaan Barang Dagangan (K)   Rp 3.750.000,00",
+					"Kas  (D)     Rp 5.525.000,00<br/> Penjualan (K)     Rp 5.525.000,00",
+					"Kas  (D)     Rp 5.525.000,00<br/> Penjualan (K)     Rp 5.525.000,00",
+					"Retur penjualan (D)  Rp 400.000,00<br/> Persediaan barang dagangan (D) Rp 500.000,00<br/> Harga pokok penjualan (K)   Rp 400.000,00<br/> Utang dagang (K)    Rp 500.000,00 ",
+					"Retur penjualan (D)  Rp 400.000,00<br/> Persediaan barang dagangan (D) Rp 500.000,00<br/> Harga pokok penjualan (K)   Rp 400.000,00<br/> Utang dagang (K)    Rp 500.000,00 ",
+					"Kas (D)    Rp 7.350.000,00<br/> Potongan penjualan (D)  Rp    150.000,00<br/> Piutang Dagang (K)    Rp 7.500.000,00",
+					"Kas (D)    Rp 7.350.000,00<br/> Potongan penjualan (D)  Rp    150.000,00<br/> Piutang Dagang (K)    Rp 7.500.000,00",
+					"Persediaan (D)   Rp   15.550.000,00<br/> Retur pembelian (D)  Rp     9.500.000,00<br/> Potongan pembelian (D)  Rp   12.750.000,00<br/> Harga Pokok Pembelian (D) Rp 180.700.000,00<br/> Persediaan (K)     Rp   12.100.000,00<br/> Pembelian (K)     Rp 192.400.000,00",
+					"Persediaan (D)   Rp   15.550.000,00<br/> Retur pembelian (D)  Rp     9.500.000,00<br/> Potongan pembelian (D)  Rp   12.750.000,00<br/> Harga Pokok Pembelian (D) Rp 180.700.000,00<br/> Persediaan (K)     Rp   12.100.000,00<br/> Pembelian (K)     Rp 192.400.000,00",
+					"Persediaan (D)   Rp   2.950.000,00<br/> Potongan pembelian (D)  Rp   1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 13.650.000,00<br/> Persediaan (K)     Rp   2.450.000,00<br/>  Pembelian (K)     Rp 14.650.000,00",
+					"Persediaan (D)   Rp   2.950.000,00<br/> Potongan pembelian (D)  Rp   1.500.000,00<br/> Harga Pokok Penjualan (D) Rp 13.650.000,00<br/>  Persediaan (K)     Rp   2.450.000,00<br/>  Pembelian (K)     Rp 14.650.000,00",
+					"Rp 5.560.000,00",
+					"Rp1.540.000,00 ",
+					"Rp 5.560.000,00",
+					"Rp1.540.000,00 ",
+					"Rp4.430,00 ",
+					"Rp 5. 247.419,35",
+					"Rp1.203.580,65 ",
+					"Rp4.430,94 ",
+					"Rp 5. 247.419,35",
+					"Rp1.203.580,65",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.155.000,00<br/>  Persediaan (K)     Rp 1.155.000,00<br/> Penjualan (K)     Rp 1.890.000,00",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.215.000,00<br/>  Persediaan (K)     Rp 1.215.000,00<br/> Penjualan (K)     Rp 1.890.000,00",
+					"Piutang Dagang (D)  Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.155.000,00<br/> Persediaan (K)     Rp 1.155.000,00<br/> Penjualan (K)     Rp 1.890.000,00",
+					"Piutang Dagang (D)  Rp 1.215.000,00<br/>  Harga Pokok Penjualan (D) Rp 1.890.000,00<br/>  Persediaan (K)     Rp 1.890.000,00<br/> Penjualan (K)     Rp 1.215.000,00",
+					"Piutang Dagang (D)  Rp 1.215.000,00<br/>  Harga Pokok Penjualan (D) Rp 1.176.246,00<br/>  Persediaan (K)     Rp 1.176.246,00<br/> Penjualan (K)     Rp 1.215.000,00"
+				];
+		var opsiE = [									 	   
+					"Menjual barang konsinyasi.",
+					"Barang yang dijual tanpa mengalami pengolahan terlebih dahulu.",
+					"Retur pembelian dicacat secara langsung pada akun retur pembelian.",
+					"Mendebet akun persediaan pada saat pembelian persediaan.",
+					"Barang yang paling banyak di gudang.",
+					"Barang yang paling banyak di gudang.",
+					"Bahan habis pakai.",
+					"Menyebabkan pajak yang dihasilkan terlalu kecil",
+					"Diperlukan perhitungan fisik untuk mengetahui saldo persediaan yang sebenarnya.",
+					"Persediaan Barang Dagangan (D) Rp 3.250.000,00<br/> Piutang Dagang (K) Rp 3.250.000,00",
+					"Persediaan Barang Dagangan (D) Rp 3.250.000,00<br/> Piutang Dagang (K) Rp 3.250.000,00",
+					"Persediaan Barang Dagangan (D) Rp 9.310.000,00<br/> Kas (K) Rp 9.310.000,00",
+					"Persediaan Barang Dagangan (D) Rp 9.310.000,00<br/> Kas (K) Rp 9.310.000,00",
+					"Utang Dagang (D) Rp 750.000,00<br/> Persediaan Barang Dagangan (K) Rp 750.000,00",
+					"Utang Dagang (D) Rp 750.000,00<br/> Persediaan Barang Dagangan (K) Rp 750.000,00",
+					"Pembelian (D) Rp 500.000,00<br/> Persediaan Barang Dagangan (K) Rp 500.000,00",
+					"Pembelian (D) Rp 500.000,00<br/> Persediaan Barang Dagangan (K) Rp 500.000,00",
+					"Utang Dagang  (D) Rp 450.000,00<br/> Biaya Angkut Pembelian (D) Rp 450.000,00<br/> Kas (K) Rp 450.000,00<br/> Persediaan Barang Dagangan (K) Rp 450.000,00",
+					"Utang Dagang  (D) Rp 450.000,00<br/> Biaya Angkut Pembelian (D) Rp 450.000,00<br/> Kas (K) Rp 450.000,00<br/> Persediaan Barang Dagangan (K) Rp 450.000,00",
+					"Utang Dagang (D) Rp  3.185.000,00<br/> Persediaan Barang Dagangan (D) Rp 65.000,00<br/> Kas (K) Rp 3.250.000,00",
+					"Utang Dagang (D) Rp  3.185.000,00<br/> Persediaan Barang Dagangan (D) Rp 65.000,00<br/> Kas (K) Rp 3.250.000,00",
+					"Utang Dagang  (D) Rp 11.760.000,00<br/> Kas (K) Rp 11.760.000,00",
+					"Utang Dagang  (D) Rp 11.760.000,00<br/> Kas (K) Rp 11.760.000,00",
+					"Piutang Dagang  (D) Rp 3.750.000,00<br/> Penjualan (K) Rp 3.750.000,00<br/> Harga Pokok Penjualan (D) Rp 4.500.000,00<br/> Persediaan Barang Dagangan (K) Rp 4.500.000,00",
+					"Piutang Dagang  (D) Rp 3.750.000,00<br/> Penjualan (K) Rp 3.750.000,00<br/> Harga Pokok Penjualan (D) Rp 4.500.000,00<br/> Persediaan Barang Dagangan (K) Rp 4.500.000,00",
+					"Kas  (D) Rp 4.000.000,00<br/> Penjualan (K) Rp 4.000.000,00",
+					"Kas  (D) Rp 4.000.000,00<br/> Penjualan (K) Rp 4.000.000,00",
+					"Retur penjualan (D) Rp 500.000,00<br/> Harga pokok penjualan (D) Rp 400.000,00<br/> Persediaan Barang Dagangan (K) Rp 400.000,00<br/> Kas (K) Rp 500.000,00",
+					"Retur penjualan (D) Rp 500.000,00<br/> Harga pokok penjualan (D) Rp 400.000,00<br/> Persediaan Barang Dagangan (K) Rp 400.000,00<br/> Kas (K) Rp 500.000,00",
+					"Kas (D) Rp 7.500.000,00<br/> Piutang Dagang (K) Rp 7.500.000,00",
+					"Kas (D) Rp 7.500.000,00<br/> Piutang Dagang (K) Rp 7.500.000,00",
+					"Tidak dijurnal",
+					"Tidak dijurnal",
+					"Tidak Dijurnal",
+					"Tidak Dijurnal",
+					"'Rp 5.650.000,00",
+					"'Rp 1.710.000,00",
+					"'Rp 5.650.000,00",
+					"'Rp 1.710.000,00",
+					"'Rp 4.340,00",
+					"'Rp 5. 427.149,35",
+					"'Rp 1.302.850,65",
+					"'Rp 4.340,00",
+					"'Rp 5. 427.149,35",
+					"'Rp 1.302.850,65",
+					"Piutang Dagang (D) Rp 1.155.000,00<br/> Harga Pokok Penjualan (D) Rp 1.890.000,00<br/> Persediaan (K) Rp 1.890.000,00<br/> Penjualan (K) Rp 1.155.000,00",
+					"Piutang Dagang (D) Rp 1.215.000,00<br/> Harga Pokok Penjualan (D) Rp  1.890.000,00<br/> Persediaan (K) Rp 1.890.000,00<br/> Penjualan (K) Rp 1.215.000,00",
+					"Piutang Dagang (D) Rp 1.155.000,00<br/> Harga Pokok Penjualan (D) Rp  1.890.000,00<br/> Persediaan (K) Rp 1.890.000,00<br/> Penjualan (K) Rp  1.155.000,00",
+					"Piutang Dagang (D) Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.215.000,00<br/> Persediaan (K) Rp 1.215.000,00<br/> Penjualan (K) Rp 1.890.000,00",
+					"Piutang Dagang (D) Rp 1.890.000,00<br/> Harga Pokok Penjualan (D) Rp 1.176.426,00<br/> Persediaan (K) Rp 1.176.426,00<br/> Penjualan (K) Rp 1.890.000,00"
+				];
+		var kunciJawaban = [        									 	   
+							"b",
+							"d",
+							"c",
+							"a",
+							"a",
+							"b",
+							"a",
+							"b",
+							"a",
+							"b",
+							"d",
+							"e",
+							"a",
+							"c",
+							"e",
+							"a",
+							"b",
+							"c",
+							"a",
+							"a",
+							"b",
+							"a",
+							"a",
+							"b",
+							"d",
+							"a",
+							"d",
+							"a",
+							"c",
+							"d",
+							"d",
+							"b",
+							"e",
+							"a",
+							"e",
+							"b",
+							"c",
+							"d",
+							"a",
+							"d",
+							"b",
+							"b",
+							"a",
+							"c",
+							"c",
+							"b",
+							"b",
+							"d",
+							"e",
+							"e"
+							];
+			var jumlahSoal = 20;//soal.length;
+			/*function shuffle(a) {
+				for (let i = a.length; i; i--) {
+					let j = Math.floor(Math.random() * i);
+					[a[i - 1], a[j]] = [a[j], a[i - 1]];
+				}
+			}*/
+			Array.prototype.shuffle = function() {
+			  var i = this.length, j, temp;
+			  if ( i == 0 ) return this;
+			  while ( --i ) {
+				 j = Math.floor( Math.random() * ( i + 1 ) );
+				 temp = this[i];
+				 this[i] = this[j];
+				 this[j] = temp;
+			  }
+			  return this;
+			}
+			function debugKuis2() {
+				alert("OK!");
+			}
+			function resetSoal(){
+				nomorSoal = 0;
+				sekor = 0;
+				$("#divMulai").show();
+				$("#divSoal").hide();
+				$("#divSekor").hide();
+				//document.getElementById("divMulai").style.display = "initial";
+				//document.getElementById("divSoal").style.display = "none";
+				//document.getElementById("divSekor").style.display = "none";
+			}
+			function mulaiSoal(){
+				$("#divMulai").hide();
+				$("#divSoal").show();
+				$("#backQuiz").hide();
+				$("#homeQuiz").hide();
+				//document.getElementById("divMulai").style.display = "none";
+				//document.getElementById("divSoal").style.display = "initial";
+				//shuffle(nomorAcak);
+				nomorAcak.shuffle();
+				tampilkanSoal();
+			}
+			function tampilkanSoal(){
+				document.getElementById("textSoal").innerHTML = nomorSoal+1 +". "+soal[nomorAcak[nomorSoal]];
+				document.getElementById("opsiA").innerHTML = "a. "+opsiA[nomorAcak[nomorSoal]];
+				document.getElementById("opsiB").innerHTML = "b. "+opsiB[nomorAcak[nomorSoal]];
+				document.getElementById("opsiC").innerHTML = "c. "+opsiC[nomorAcak[nomorSoal]];
+				document.getElementById("opsiD").innerHTML = "d. "+opsiD[nomorAcak[nomorSoal]];
+				document.getElementById("opsiE").innerHTML = "e. "+opsiE[nomorAcak[nomorSoal]];
+				document.getElementById("opsiA").style.paddingLeft = "10px";
+				document.getElementById("opsiA").style.paddingTop = "10px";
+				document.getElementById("opsiA").style.paddingBottom = "10px";
+				document.getElementById("opsiB").style.paddingLeft = "10px";
+				document.getElementById("opsiB").style.paddingTop = "10px";
+				document.getElementById("opsiB").style.paddingBottom = "10px";
+				document.getElementById("opsiC").style.paddingLeft = "10px";
+				document.getElementById("opsiC").style.paddingTop = "10px";
+				document.getElementById("opsiC").style.paddingBottom = "10px";
+				document.getElementById("opsiD").style.paddingLeft = "10px";
+				document.getElementById("opsiD").style.paddingTop = "10px";
+				document.getElementById("opsiD").style.paddingBottom = "10px";
+				document.getElementById("opsiE").style.paddingLeft = "10px";
+				document.getElementById("opsiE").style.paddingTop = "10px";
+				document.getElementById("opsiE").style.paddingBottom = "10px";
+				document.getElementById("divSoal").style.display = "initial";
+			}
+			function cekJawaban(value){
+				if(value == kunciJawaban[nomorAcak[nomorSoal]]){
+					sekor += 10;
+				}
+				nomorSoal++;
+				if(nomorSoal<jumlahSoal){
+					tampilkanSoal();
+				}else{
+					document.getElementById("divSoal").style.display = "none";
+					document.getElementById("divSekor").style.display = "initial";
+					document.getElementById("sekor").innerHTML = (sekor/2).toFixed(2);
+					$("#backQuiz").show();
+					$("#homeQuiz").show();
+					if((sekor/2)<75){
+						$("#lulus-kkm").hide();
+						$("#gagal-kkm").show();
+					}else{
+						$("#lulus-kkm").show();
+						$("#gagal-kkm").hide();
+					}
+				}
+			}
+	</script>
+		
+		
+	<script>	
+		function getUang(str) {
+			var res = str.replace(/[^\d.,-]/g, '');
+			res = res.replace(/\./g, "");
+			//res = res.replace(",", "");
+			return res;
+		}
+	</script>
+	<script>
+		function gotohome() {
+			location.href = "index.html#home-page";
+		}
+		var nomorSoal = 0;
+		var periodikFIFO = [
+							[
+							  "3 Januari",
+							  1,
+							  10,
+							  0,
+							  0,
+							  "152600000,00",
+							  "152600000,00",
+							  "",
+							  ""
+							],
+							[
+							  "7 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "154470000,00",
+							  "154470000,00",
+							  "",
+							  ""
+							],
+							[
+							  "9 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "108100000,00",
+							  "1081000,00",
+							  "1081000,00",
+							  "108100000,00"
+							],
+							[
+							  "13 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "93124000,00",
+							  "93124000,00",
+							  "",
+							  ""
+							],
+							[
+							  "17 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "193350000,00",
+							  "1933500,00",
+							  "1933500,00",
+							  "193350000,00"
+							],
+							[
+							  "22 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "73150000,00",
+							  "73150000,00",
+							  "",
+							  ""
+							],
+							[
+							  "25 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "82150000,00",
+							  "821500,00",
+							  "821500,00",
+							  "82150000,00"
+							],
+							[
+							  "Penyesuaian akhir periode",
+							  5,
+							  15,
+							  12,
+							  6,
+							  "101345000,00",
+							  "351544000,00",
+							  "320744000,00",
+							  "132145000,00"
+							]
+						   ];
+		
+		function mulaiSoalPeriodikFIFO(){
+			nomorSoal = 0;
+			$("#div-periodik-fifo-next").hide();
+			tampilkanSoalPeriodikFIFO();
+		}
+		
+		function tampilkanSoalPeriodikFIFO(){
+			$("#select-priodik-fifo-0").val(0).change();
+			$("#select-priodik-fifo-1").val(0).change();
+			$("#select-priodik-fifo-2").val(0).change();
+			$("#select-priodik-fifo-3").val(0).change();
+			$("#uang-periodik-fifo-0").val("");
+			$("#uang-periodik-fifo-1").val("");
+			$("#uang-periodik-fifo-2").val("");
+			$("#uang-periodik-fifo-3").val("");
+			$("#div-periodik-fifo-next").hide();
+			$("#periodik-fifo-cek-jawaban").html("");
+			$("#periodik-fifo-soal").html(periodikFIFO[nomorSoal][0]);
+		}
+		
+		$("#periodik-fifo-btn-cek").click( function() {
+			var cek = true;
+			cek &= ($("#select-priodik-fifo-0").val() == periodikFIFO[nomorSoal][1]);
+			cek &= ($("#select-priodik-fifo-1").val() == periodikFIFO[nomorSoal][2]);
+			cek &= ($("#select-priodik-fifo-2").val() == periodikFIFO[nomorSoal][3]);
+			cek &= ($("#select-priodik-fifo-3").val() == periodikFIFO[nomorSoal][4]);
+			cek &= (getUang($("#uang-periodik-fifo-0").val()) == periodikFIFO[nomorSoal][5]);
+			cek &= (getUang($("#uang-periodik-fifo-1").val()) == periodikFIFO[nomorSoal][6]);
+			cek &= (getUang($("#uang-periodik-fifo-2").val()) == periodikFIFO[nomorSoal][7]);
+			cek &= (getUang($("#uang-periodik-fifo-3").val()) == periodikFIFO[nomorSoal][8]);
+			console.log(cek);
+			console.log($("#select-priodik-fifo-0").val());
+			if (cek) {
+				console.log("Jawaban Benar");
+				$("#periodik-fifo-cek-jawaban").html("Jawabanmu Benar. Klik tombol di bawah untuk data selanjutnya!");
+				$("#div-periodik-fifo-next").show();
+			} else {
+				console.log("Jawaban Salah");
+				alert("Jawabanmu ada yang salah. Kamu akan dialihkan ke Transaksi tanggal 3 Januari");
+				mulaiSoalPeriodikFIFO();
+			}
+		});
+		
+		$("#periodik-fifo-btn-next").click( function() {
+			nomorSoal++;
+			if(nomorSoal == 8){
+				$("#sistem").html("Periodik: FIFO");
+				location.href = "#sekor-page";
+			}
+			tampilkanSoalPeriodikFIFO();
+		});
+		
+		var periodikLIFO = [
+							[
+							  "3 Januari",
+							  1,
+							  10,
+							  0,
+							  0,
+							  "152600000,00",
+							  "152600000,00",
+							  "",
+							  ""
+							],
+							[
+							  "7 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "154470000,00",
+							  "154470000,00",
+							  "",
+							  ""
+							],
+							[
+							  "9 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "108100000,00",
+							  "1081000,00",
+							  "1081000,00",
+							  "108100000,00"
+							],
+							[
+							  "13 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "93124000,00",
+							  "93124000,00",
+							  "",
+							  ""
+							],
+							[
+							  "17 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "193350000,00",
+							  "1933500,00",
+							  "1933500,00",
+							  "193350000,00"
+							],
+							[
+							  "22 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "73150000,00",
+							  "73150000,00",
+							  "",
+							  ""
+							],
+							[
+							  "25 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "82150000,00",
+							  "821500,00",
+							  "821500,00",
+							  "82150000,00"
+							],
+							[
+							  "Penyesuaian akhir periode",
+							  5,
+							  15,
+							  12,
+							  6,
+							  "96575000,00",
+							  "356314000,00",
+							  "320744000,00",
+							  "132145000,00"
+							]
+						   ];
+		
+		function mulaiSoalPeriodikLIFO(){
+			nomorSoal = 0;
+			$("#div-periodik-lifo-next").hide();
+			tampilkanSoalPeriodikLIFO();
+		}
+		
+		function tampilkanSoalPeriodikLIFO(){
+			$("#select-priodik-lifo-0").val(0).change();
+			$("#select-priodik-lifo-1").val(0).change();
+			$("#select-priodik-lifo-2").val(0).change();
+			$("#select-priodik-lifo-3").val(0).change();
+			$("#uang-periodik-lifo-0").val("");
+			$("#uang-periodik-lifo-1").val("");
+			$("#uang-periodik-lifo-2").val("");
+			$("#uang-periodik-lifo-3").val("");
+			$("#div-periodik-lifo-next").hide();
+			$("#periodik-lifo-cek-jawaban").html("");
+			$("#periodik-lifo-soal").html(periodikLIFO[nomorSoal][0]);
+		}
+		
+		$("#periodik-lifo-btn-cek").click( function() {
+			var cek = true;
+			cek &= ($("#select-priodik-lifo-0").val() == periodikLIFO[nomorSoal][1]);
+			cek &= ($("#select-priodik-lifo-1").val() == periodikLIFO[nomorSoal][2]);
+			cek &= ($("#select-priodik-lifo-2").val() == periodikLIFO[nomorSoal][3]);
+			cek &= ($("#select-priodik-lifo-3").val() == periodikLIFO[nomorSoal][4]);
+			cek &= (getUang($("#uang-periodik-lifo-0").val()) == periodikLIFO[nomorSoal][5]);
+			cek &= (getUang($("#uang-periodik-lifo-1").val()) == periodikLIFO[nomorSoal][6]);
+			cek &= (getUang($("#uang-periodik-lifo-2").val()) == periodikLIFO[nomorSoal][7]);
+			cek &= (getUang($("#uang-periodik-lifo-3").val()) == periodikLIFO[nomorSoal][8]);
+			console.log(cek);
+			console.log($("#select-priodik-lifo-0").val())
+			if (cek) {
+				console.log("Jawaban Benar");
+				$("#periodik-lifo-cek-jawaban").html("Jawabanmu Benar. Klik tombol di bawah untuk data selanjutnya!");
+				$("#div-periodik-lifo-next").show();
+			} else {
+				console.log("Jawaban Salah");
+				alert("Jawabanmu ada yang salah. Kamu akan dialihkan ke Transaksi tanggal 3 Januari");
+				mulaiSoalPeriodikLIFO();
+			}
+		});
+		
+		$("#periodik-lifo-btn-next").click( function() {
+			nomorSoal++;
+			if(nomorSoal == 8){
+				$("#sistem").html("Periodik: LIFO");
+				location.href = "#sekor-page";
+			}
+			tampilkanSoalPeriodikLIFO();
+		});
+						   
+		var periodikSederhana = [
+							[
+							  "3 Januari",
+							  1,
+							  10,
+							  0,
+							  0,
+							  "152600000,00",
+							  "152600000,00",
+							  "",
+							  ""
+							],
+							[
+							  "7 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "154470000,00",
+							  "154470000,00",
+							  "",
+							  ""
+							],
+							[
+							  "9 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "108100000,00",
+							  "1081000,00",
+							  "1081000,00",
+							  "108100000,00"
+							],
+							[
+							  "13 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "93124000,00",
+							  "93124000,00",
+							  "",
+							  ""
+							],
+							[
+							  "17 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "193350000,00",
+							  "1933500,00",
+							  "1933500,00",
+							  "193350000,00"
+							],
+							[
+							  "22 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "73150000,00",
+							  "73150000,00",
+							  "",
+							  ""
+							],
+							[
+							  "25 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "82150000,00",
+							  "821500,00",
+							  "821500,00",
+							  "82150000,00"
+							],
+							[
+							  "Penyesuaian akhir periode",
+							  5,
+							  15,
+							  12,
+							  6,
+							  "96845833,33",
+							  "356043166,67",
+							  "320744000,00",
+							  "132145000,00"
+							]
+						   ];
+		
+		function mulaiSoalPeriodikSederhana(){
+			nomorSoal = 0;
+			$("#div-periodik-sederhana-next").hide();
+			tampilkanSoalPeriodikSederhana();
+		}
+		
+		function tampilkanSoalPeriodikSederhana(){
+			$("#select-priodik-sederhana-0").val(0).change();
+			$("#select-priodik-sederhana-1").val(0).change();
+			$("#select-priodik-sederhana-2").val(0).change();
+			$("#select-priodik-sederhana-3").val(0).change();
+			$("#uang-periodik-sederhana-0").val("");
+			$("#uang-periodik-sederhana-1").val("");
+			$("#uang-periodik-sederhana-2").val("");
+			$("#uang-periodik-sederhana-3").val("");
+			$("#div-periodik-sederhana-next").hide();
+			$("#periodik-sederhana-cek-jawaban").html("");
+			$("#periodik-sederhana-soal").html(periodikSederhana[nomorSoal][0]);
+		}
+		
+		$("#periodik-sederhana-btn-cek").click( function() {
+			var cek = true;
+			cek &= ($("#select-priodik-sederhana-0").val() == periodikSederhana[nomorSoal][1]);
+			cek &= ($("#select-priodik-sederhana-1").val() == periodikSederhana[nomorSoal][2]);
+			cek &= ($("#select-priodik-sederhana-2").val() == periodikSederhana[nomorSoal][3]);
+			cek &= ($("#select-priodik-sederhana-3").val() == periodikSederhana[nomorSoal][4]);
+			cek &= (getUang($("#uang-periodik-sederhana-0").val()) == periodikSederhana[nomorSoal][5]);
+			cek &= (getUang($("#uang-periodik-sederhana-1").val()) == periodikSederhana[nomorSoal][6]);
+			cek &= (getUang($("#uang-periodik-sederhana-2").val()) == periodikSederhana[nomorSoal][7]);
+			cek &= (getUang($("#uang-periodik-sederhana-3").val()) == periodikSederhana[nomorSoal][8]);
+			console.log(cek);
+			console.log($("#select-priodik-sederhana-0").val())
+			if (cek) {
+				console.log("Jawaban Benar");
+				$("#periodik-sederhana-cek-jawaban").html("Jawabanmu Benar. Klik tombol di bawah untuk data selanjutnya!");
+				$("#div-periodik-sederhana-next").show();
+			} else {
+				console.log("Jawaban Salah");
+				alert("Jawabanmu ada yang salah. Kamu akan dialihkan ke Transaksi tanggal 3 Januari");
+				mulaiSoalPeriodikSederhana();
+			}
+		});
+		
+		$("#periodik-sederhana-btn-next").click( function() {
+			nomorSoal++;
+			if(nomorSoal == 8){
+				$("#sistem").html("Periodik: rata-rata sederhana");
+				location.href = "#sekor-page";
+			}
+			tampilkanSoalPeriodikSederhana();
+		});
+						   
+		var periodikTertimbang = [
+							[
+							  "3 Januari",
+							  1,
+							  10,
+							  0,
+							  0,
+							  "152600000,00",
+							  "152600000,00",
+							  "",
+							  ""
+							],
+							[
+							  "7 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "154470000,00",
+							  "154470000,00",
+							  "",
+							  ""
+							],
+							[
+							  "9 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "108100000,00",
+							  "1081000,00",
+							  "1081000,00",
+							  "108100000,00"
+							],
+							[
+							  "13 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "93124000,00",
+							  "93124000,00",
+							  "",
+							  ""
+							],
+							[
+							  "17 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "193350000,00",
+							  "1933500,00",
+							  "1933500,00",
+							  "193350000,00"
+							],
+							[
+							  "22 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  "73150000,00",
+							  "73150000,00",
+							  "",
+							  ""
+							],
+							[
+							  "25 Januari",
+							  3,
+							  13,
+							  2,
+							  10,
+							  "82150000,00",
+							  "821500,00",
+							  "821500,00",
+							  "82150000,00"
+							],
+							[
+							  "Penyesuaian akhir periode",
+							  5,
+							  15,
+							  12,
+							  6,
+							  "96526221,53",
+							  "356362778,47",
+							  "320744000,00",
+							  "132145000,00"
+							]
+						];
+						   
+		
+		function mulaiSoalPeriodikTertimbang(){
+			nomorSoal = 0;
+			$("#div-periodik-tertimbang-next").hide();
+			tampilkanSoalPeriodikTertimbang();
+		}
+		
+		function tampilkanSoalPeriodikTertimbang(){
+			$("#select-priodik-tertimbang-0").val(0).change();
+			$("#select-priodik-tertimbang-1").val(0).change();
+			$("#select-priodik-tertimbang-2").val(0).change();
+			$("#select-priodik-tertimbang-3").val(0).change();
+			$("#uang-periodik-tertimbang-0").val("");
+			$("#uang-periodik-tertimbang-1").val("");
+			$("#uang-periodik-tertimbang-2").val("");
+			$("#uang-periodik-tertimbang-3").val("");
+			$("#div-periodik-tertimbang-next").hide();
+			$("#periodik-tertimbang-cek-jawaban").html("");
+			$("#periodik-tertimbang-soal").html(periodikTertimbang[nomorSoal][0]);
+		}
+		
+		$("#periodik-tertimbang-btn-cek").click( function() {
+			var cek = true;
+			cek &= ($("#select-priodik-tertimbang-0").val() == periodikTertimbang[nomorSoal][1]);
+			cek &= ($("#select-priodik-tertimbang-1").val() == periodikTertimbang[nomorSoal][2]);
+			cek &= ($("#select-priodik-tertimbang-2").val() == periodikTertimbang[nomorSoal][3]);
+			cek &= ($("#select-priodik-tertimbang-3").val() == periodikTertimbang[nomorSoal][4]);
+			cek &= (getUang($("#uang-periodik-tertimbang-0").val()) == periodikTertimbang[nomorSoal][5]);
+			cek &= (getUang($("#uang-periodik-tertimbang-1").val()) == periodikTertimbang[nomorSoal][6]);
+			cek &= (getUang($("#uang-periodik-tertimbang-2").val()) == periodikTertimbang[nomorSoal][7]);
+			cek &= (getUang($("#uang-periodik-tertimbang-3").val()) == periodikTertimbang[nomorSoal][8]);
+			console.log(cek);
+			console.log($("#select-priodik-tertimbang-0").val())
+			if (cek) {
+				console.log("Jawaban Benar");
+				$("#periodik-tertimbang-cek-jawaban").html("Jawabanmu Benar. Klik tombol di bawah untuk data selanjutnya!");
+				$("#div-periodik-tertimbang-next").show();
+			} else {
+				console.log("Jawaban Salah");
+				alert("Jawabanmu ada yang salah. Kamu akan dialihkan ke Transaksi tanggal 3 Januari");
+				mulaiSoalPeriodikTertimbang();
+			}
+		});
+		
+		$("#periodik-tertimbang-btn-next").click( function() {
+			nomorSoal++;
+			if(nomorSoal == 8){
+				$("#sistem").html("Periodik: rata-rata tertimbang");
+				location.href = "#sekor-page";
+			}
+			tampilkanSoalPeriodikTertimbang();
+		});
+		
+		///////////////////// perpetual ////////////////////////////
+		var perpetualFIFO = [
+							 [
+							  "3 Januari",
+							  1,
+							  15,
+							  6,
+							  10,
+							  0,
+							  0,
+							  "152600000,00",
+							  "99190000,00",
+							  "99190000,00",
+							  "152600000,00",
+							  "",
+							  ""
+							 ],
+							 [
+							  "7 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "154470000,00",
+							  "154470000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "9 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "108100000,00",
+							  "1081000,00",
+							  "67395000,00",
+							  "67395000,00",
+							  "1081000,00",
+							  "108100000,00"
+							 ],
+							 [
+							  "13 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "93124000,00",
+							  "93124000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "17 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "193350000,00",
+							  "1933500,00",
+							  "116670000,00",
+							  "116670000,00",
+							  "1933500,00",
+							  "193350000,00"
+							 ],
+							 [
+							  "22 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "73150000,00",
+							  "73150000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "25 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "82150000,00",
+							  "821500,00",
+							  "68289000,00",
+							  "68289000,00",
+							  "821500,00",
+							  "82150000,00"
+							 ],
+							];
+		
+		function mulaiSoalPerpetualFIFO(){
+			nomorSoal = 0;
+			$("#div-perpetual-fifo-next").hide();
+			tampilkanSoalPerpetualFIFO();
+		}
+		
+		function tampilkanSoalPerpetualFIFO(){
+			$("#select-perpetual-fifo-0").val(0).change();
+			$("#select-perpetual-fifo-1").val(0).change();
+			$("#select-perpetual-fifo-2").val(0).change();
+			$("#select-perpetual-fifo-3").val(0).change();
+			$("#select-perpetual-fifo-4").val(0).change();
+			$("#select-perpetual-fifo-5").val(0).change();
+			$("#uang-perpetual-fifo-0").val("");
+			$("#uang-perpetual-fifo-1").val("");
+			$("#uang-perpetual-fifo-2").val("");
+			$("#uang-perpetual-fifo-3").val("");
+			$("#uang-perpetual-fifo-4").val("");
+			$("#uang-perpetual-fifo-5").val("");
+			$("#div-perpetual-fifo-next").hide();
+			$("#perpetual-fifo-cek-jawaban").html("");
+			$("#perpetual-fifo-soal").html(perpetualFIFO[nomorSoal][0]);
+		}
+		
+		$("#perpetual-fifo-btn-cek").click( function() {
+			var cek = true;
+			cek &= ($("#select-perpetual-fifo-0").val() == perpetualFIFO[nomorSoal][1]);
+			cek &= ($("#select-perpetual-fifo-1").val() == perpetualFIFO[nomorSoal][2]);
+			cek &= ($("#select-perpetual-fifo-2").val() == perpetualFIFO[nomorSoal][3]);
+			cek &= ($("#select-perpetual-fifo-3").val() == perpetualFIFO[nomorSoal][4]);
+			cek &= ($("#select-perpetual-fifo-4").val() == perpetualFIFO[nomorSoal][5]);
+			cek &= ($("#select-perpetual-fifo-5").val() == perpetualFIFO[nomorSoal][6]);
+			cek &= (getUang($("#uang-perpetual-fifo-0").val()) == perpetualFIFO[nomorSoal][7]);
+			cek &= (getUang($("#uang-perpetual-fifo-1").val()) == perpetualFIFO[nomorSoal][8]);
+			cek &= (getUang($("#uang-perpetual-fifo-2").val()) == perpetualFIFO[nomorSoal][9]);
+			cek &= (getUang($("#uang-perpetual-fifo-3").val()) == perpetualFIFO[nomorSoal][10]);
+			cek &= (getUang($("#uang-perpetual-fifo-4").val()) == perpetualFIFO[nomorSoal][11]);
+			cek &= (getUang($("#uang-perpetual-fifo-5").val()) == perpetualFIFO[nomorSoal][12]);
+			console.log(cek);
+			console.log($("#select-perpetual-fifo-0").val())
+			if (cek) {
+				console.log("Jawaban Benar");
+				$("#perpetual-fifo-cek-jawaban").html("Jawabanmu Benar. Klik tombol di bawah untuk data selanjutnya!");
+				$("#div-perpetual-fifo-next").show();
+			} else {
+				console.log("Jawaban Salah");
+				alert("Jawabanmu ada yang salah. Kamu akan dialihkan ke Transaksi tanggal 3 Januari");
+				mulaiSoalPerpetualFIFO();
+			}
+		});
+		
+		$("#perpetual-fifo-btn-next").click( function() {
+			nomorSoal++;
+			if(nomorSoal == 7){
+				$("#sistem").html("Perpetual: FIFO");
+				location.href = "#sekor-page";
+			}
+			tampilkanSoalPerpetualFIFO();
+		});
+		
+		var perpetualLIFO = [
+							 [
+							  "3 Januari",
+							  1,
+							  15,
+							  6,
+							  10,
+							  0,
+							  0,
+							  "152600000,00",
+							  "99190000,00",
+							  "99190000,00",
+							  "152600000,00",
+							  "",
+							  ""
+							 ],
+							 [
+							  "7 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "154470000,00",
+							  "154470000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "9 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "108100000,00",
+							  "1081000,00",
+							  "67395000,00",
+							  "67395000,00",
+							  "1081000,00",
+							  "108100000,00"
+							 ],
+							 [
+							  "13 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "93124000,00",
+							  "93124000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "17 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "193350000,00",
+							  "1933500,00",
+							  "118282000,00",
+							  "118282000,00",
+							  "1933500,00",
+							  "193350000,00"
+							 ],
+							 [
+							  "22 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "73150000,00",
+							  "73150000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "25 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "82150000,00",
+							  "821500,00",
+							  "72603000,00",
+							  "72603000,00",
+							  "821500,00",
+							  "82150000,00"
+							 ],
+							];
+		
+		function mulaiSoalPerpetualLIFO(){
+			nomorSoal = 0;
+			$("#div-perpetual-lifo-next").hide();
+			tampilkanSoalPerpetualLIFO();
+		}
+		
+		function tampilkanSoalPerpetualLIFO(){
+			$("#select-perpetual-lifo-0").val(0).change();
+			$("#select-perpetual-lifo-1").val(0).change();
+			$("#select-perpetual-lifo-2").val(0).change();
+			$("#select-perpetual-lifo-3").val(0).change();
+			$("#select-perpetual-lifo-4").val(0).change();
+			$("#select-perpetual-lifo-5").val(0).change();
+			$("#uang-perpetual-lifo-0").val("");
+			$("#uang-perpetual-lifo-1").val("");
+			$("#uang-perpetual-lifo-2").val("");
+			$("#uang-perpetual-lifo-3").val("");
+			$("#uang-perpetual-lifo-4").val("");
+			$("#uang-perpetual-lifo-5").val("");
+			$("#div-perpetual-lifo-next").hide();
+			$("#perpetual-lifo-cek-jawaban").html("");
+			$("#perpetual-lifo-soal").html(perpetualLIFO[nomorSoal][0]);
+		}
+		
+		$("#perpetual-lifo-btn-cek").click( function() {
+			var cek = true;
+			cek &= ($("#select-perpetual-lifo-0").val() == perpetualLIFO[nomorSoal][1]);
+			cek &= ($("#select-perpetual-lifo-1").val() == perpetualLIFO[nomorSoal][2]);
+			cek &= ($("#select-perpetual-lifo-2").val() == perpetualLIFO[nomorSoal][3]);
+			cek &= ($("#select-perpetual-lifo-3").val() == perpetualLIFO[nomorSoal][4]);
+			cek &= ($("#select-perpetual-lifo-4").val() == perpetualLIFO[nomorSoal][5]);
+			cek &= ($("#select-perpetual-lifo-5").val() == perpetualLIFO[nomorSoal][6]);
+			cek &= (getUang($("#uang-perpetual-lifo-0").val()) == perpetualLIFO[nomorSoal][7]);
+			cek &= (getUang($("#uang-perpetual-lifo-1").val()) == perpetualLIFO[nomorSoal][8]);
+			cek &= (getUang($("#uang-perpetual-lifo-2").val()) == perpetualLIFO[nomorSoal][9]);
+			cek &= (getUang($("#uang-perpetual-lifo-3").val()) == perpetualLIFO[nomorSoal][10]);
+			cek &= (getUang($("#uang-perpetual-lifo-4").val()) == perpetualLIFO[nomorSoal][11]);
+			cek &= (getUang($("#uang-perpetual-lifo-5").val()) == perpetualLIFO[nomorSoal][12]);
+			console.log(cek);
+			console.log($("#select-perpetual-lifo-0").val())
+			if (cek) {
+				console.log("Jawaban Benar");
+				$("#perpetual-lifo-cek-jawaban").html("Jawabanmu Benar. Klik tombol di bawah untuk data selanjutnya!");
+				$("#div-perpetual-lifo-next").show();
+			} else {
+				console.log("Jawaban Salah");
+				alert("Jawabanmu ada yang salah. Kamu akan dialihkan ke Transaksi tanggal 3 Januari");
+				mulaiSoalPerpetualLIFO();
+			}
+		});
+		
+		$("#perpetual-lifo-btn-next").click( function() {
+			nomorSoal++;
+			if(nomorSoal == 7){
+				$("#sistem").html("Perpetual: LIFO");
+				location.href = "#sekor-page";
+			}
+			tampilkanSoalPerpetualLIFO();
+		});
+		
+		var perpetualBergerak = [
+							 [
+							  "3 Januari",
+							  1,
+							  15,
+							  6,
+							  10,
+							  0,
+							  0,
+							  "152600000,00",
+							  "99190000,00",
+							  "99190000,00",
+							  "152600000,00",
+							  "",
+							  ""
+							 ],
+							 [
+							  "7 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "154470000,00",
+							  "154470000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "9 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "108100000,00",
+							  "1081000,00",
+							  "65671428,57",
+							  "65671428,57",
+							  "1081000,00",
+							  "108100000,00"
+							 ],
+							 [
+							  "13 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "93124000,00",
+							  "93124000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "17 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "193350000,00",
+							  "1933500,00",
+							  "118548030,69",
+							  "118548030,69",
+							  "1933500,00",
+							  "193350000,00"
+							 ],
+							 [
+							  "22 Januari",
+							  11,
+							  8,
+							  0,
+							  0,
+							  0,
+							  0,
+							  "73150000,00",
+							  "73150000,00",
+							  "",
+							  "",
+							  "",
+							  ""
+							 ],
+							 [
+							  "25 Januari",
+							  3,
+							  13,
+							  15,
+							  6,
+							  2,
+							  10,
+							  "82150000,00",
+							  "821500,00",
+							  "71237637,74",
+							  "71237637,74",
+							  "821500,00",
+							  "82150000,00"
+							 ],
+							];
+		
+		function mulaiSoalPerpetualBergerak(){
+			nomorSoal = 0;
+			$("#div-perpetual-bergerak-next").hide();
+			tampilkanSoalPerpetualBergerak();
+		}
+		
+		function tampilkanSoalPerpetualBergerak(){
+			$("#select-perpetual-bergerak-0").val(0).change();
+			$("#select-perpetual-bergerak-1").val(0).change();
+			$("#select-perpetual-bergerak-2").val(0).change();
+			$("#select-perpetual-bergerak-3").val(0).change();
+			$("#select-perpetual-bergerak-4").val(0).change();
+			$("#select-perpetual-bergerak-5").val(0).change();
+			$("#uang-perpetual-bergerak-0").val("");
+			$("#uang-perpetual-bergerak-1").val("");
+			$("#uang-perpetual-bergerak-2").val("");
+			$("#uang-perpetual-bergerak-3").val("");
+			$("#uang-perpetual-bergerak-4").val("");
+			$("#uang-perpetual-bergerak-5").val("");
+			$("#div-perpetual-bergerak-next").hide();
+			$("#perpetual-bergerak-cek-jawaban").html("");
+			$("#perpetual-bergerak-soal").html(perpetualBergerak[nomorSoal][0]);
+		}
+		
+		$("#perpetual-bergerak-btn-cek").click( function() {
+			var cek = true;
+			cek &= ($("#select-perpetual-bergerak-0").val() == perpetualBergerak[nomorSoal][1]);
+			cek &= ($("#select-perpetual-bergerak-1").val() == perpetualBergerak[nomorSoal][2]);
+			cek &= ($("#select-perpetual-bergerak-2").val() == perpetualBergerak[nomorSoal][3]);
+			cek &= ($("#select-perpetual-bergerak-3").val() == perpetualBergerak[nomorSoal][4]);
+			cek &= ($("#select-perpetual-bergerak-4").val() == perpetualBergerak[nomorSoal][5]);
+			cek &= ($("#select-perpetual-bergerak-5").val() == perpetualBergerak[nomorSoal][6]);
+			cek &= (getUang($("#uang-perpetual-bergerak-0").val()) == perpetualBergerak[nomorSoal][7]);
+			cek &= (getUang($("#uang-perpetual-bergerak-1").val()) == perpetualBergerak[nomorSoal][8]);
+			cek &= (getUang($("#uang-perpetual-bergerak-2").val()) == perpetualBergerak[nomorSoal][9]);
+			cek &= (getUang($("#uang-perpetual-bergerak-3").val()) == perpetualBergerak[nomorSoal][10]);
+			cek &= (getUang($("#uang-perpetual-bergerak-4").val()) == perpetualBergerak[nomorSoal][11]);
+			cek &= (getUang($("#uang-perpetual-bergerak-5").val()) == perpetualBergerak[nomorSoal][12]);
+			console.log(cek);
+			console.log($("#select-perpetual-bergerak-0").val())
+			if (cek) {
+				console.log("Jawaban Benar");
+				$("#perpetual-bergerak-cek-jawaban").html("Jawabanmu Benar. Klik tombol di bawah untuk data selanjutnya!");
+				$("#div-perpetual-bergerak-next").show();
+			} else {
+				console.log("Jawaban Salah");
+				alert("Jawabanmu ada yang salah. Kamu akan dialihkan ke Transaksi tanggal 3 Januari");
+				mulaiSoalPerpetualBergerak();
+			}
+		});
+		
+		$("#perpetual-bergerak-btn-next").click( function() {
+			nomorSoal++;
+			if(nomorSoal == 7){
+				$("#sistem").html("Perpetual: rata-rata bergerak");
+				location.href = "#sekor-page";
+			}
+			tampilkanSoalPerpetualBergerak();
+		});
+		
+	</script>
+		
+    </body>
+</html>
